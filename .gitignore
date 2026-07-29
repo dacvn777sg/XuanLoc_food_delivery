@@ -19,3 +19,7 @@ dist/
 build/
 .env
 .env.local
+
+# SRQ form config — chứa GitHub PAT, KHÔNG BAO GIỜ commit
+config.js
+config.local.js

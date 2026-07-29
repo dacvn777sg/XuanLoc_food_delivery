@@ -185,6 +185,7 @@
     z-index: 200;
   }
   .toast.show { opacity: 1; }
+  .toast.error { background: #dc2626; }
   @media (max-width: 640px) {
     header { padding: 1.5rem 1rem 1rem; }
     main { padding: 1rem; }
@@ -1098,14 +1099,27 @@
 </main>
 
 <div class="actions">
-  <button class="btn" onclick="copyResults()">📋 Sao chép kết quả</button>
+  <button class="btn" id="submitBtn" onclick="submitResults()">📤 Gửi kết quả</button>
   <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
 </div>
 
-<div class="toast" id="toast">✓ Đã sao chép vào clipboard!</div>
+<div class="toast" id="toast">✓ Đã gửi kết quả!</div>
+<div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
 
 <script>
-function copyResults() {
+const GITHUB_OWNER = 'dacvn777sg';
+const GITHUB_REPO = 'XuanLoc_food_delivery';
+let GITHUB_TOKEN = '';
+
+// Load token from external config.js (kept out of git)
+fetch('config.js')
+  .then(r => r.ok ? r.text() : '')
+  .then(text => {
+    try { eval(text); } catch (e) { console.warn('config.js error:', e); }
+  })
+  .catch(() => {});
+
+function collectAnswers() {
   const sections = document.querySelectorAll('section');
   const lines = [];
   lines.push('# Kết quả khảo sát SRQ - Xuân Lộc Food Delivery');
@@ -1125,7 +1139,6 @@ function copyResults() {
       lines.push('');
       lines.push('### ' + h3.textContent);
 
-      // Checkboxes
       const checkboxes = h3.parentElement.querySelectorAll('ul.checklist li');
       checkboxes.forEach(li => {
         const cb = li.querySelector('input[type="checkbox"]');
@@ -1133,14 +1146,13 @@ function copyResults() {
         if (cb && cb.checked && span) {
           const inline = li.querySelector('input.inline');
           let val = span.textContent;
-          if (inline && inline.value && inline.style.display !== 'none') {
+          if (inline && inline.value && inline.classList.contains('show')) {
             val += ': ' + inline.value;
           }
           lines.push('- [x] ' + val);
         }
       });
 
-      // Free-text inputs
       const freetexts = h3.parentElement.querySelectorAll('.freetext-input');
       freetexts.forEach(ft => {
         if (ft.value) {
@@ -1154,14 +1166,69 @@ function copyResults() {
     });
   });
 
-  const text = lines.join('\n');
-  navigator.clipboard.writeText(text).then(() => {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-  }).catch(err => {
-    alert('Không thể copy. Kết quả:\n\n' + text);
-  });
+  return lines.join('
+');
+}
+
+async function submitResults() {
+  const btn = document.getElementById('submitBtn');
+  const answers = collectAnswers();
+
+  if (!answers.trim() || answers.length < 50) {
+    showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi gửi.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Đang gửi...';
+
+  try {
+    if (!GITHUB_TOKEN) {
+      showToast('toastError', '⚠ Form chưa được cấu hình. Vui lòng liên hệ đội ngũ phát triển.');
+      throw new Error('No GITHUB_TOKEN configured in config.js');
+    }
+
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: `📥 SRQ Submission — ${new Date().toLocaleString('vi-VN')}`,
+        body: answers + '
+
+---
+
+_Submitted via SRQ_Client.html · User agent: `' + navigator.userAgent + '`_',
+        labels: ['srq-submission', 'client-intake'],
+      })
+    });
+
+    if (res.ok || res.status === 204) {
+      showToast('toast', 'Đã gửi kết quả! Cảm ơn quý khách.');
+      btn.textContent = '✓ Đã gửi';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = '📤 Gửi kết quả';
+      }, 5000);
+    } else {
+      throw new Error('HTTP ' + res.status);
+    }
+  } catch (err) {
+    console.error('Submit failed:', err);
+    showToast('toastError', 'Gửi thất bại. Vui lòng thử lại hoặc liên hệ trực tiếp.');
+    btn.disabled = false;
+    btn.textContent = '📤 Gửi kết quả';
+  }
+}
+
+function showToast(id, msg) {
+  const t = document.getElementById(id);
+  if (msg) t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
 }
 
 // Show inline freetext when "other" checkbox is checked
