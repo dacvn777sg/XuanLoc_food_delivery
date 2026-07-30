@@ -40,17 +40,17 @@ Mục tiêu là xây dựng nền tảng giao đồ ăn gồm App Khách hàng, 
 - COD
 - Admin có thể assign tài xế
 
-## 5. Business Flow
+## 5. Luồng Nghiệp Vụ
 ```mermaid
 flowchart TD
-A[Customer]-->B[Restaurant]
-B-->C{Accept?}
-C--No-->X[Cancel]
-C--Yes-->D[Dispatch]
-D-->E[Driver]
-E-->F[Pickup]
-F-->G[Deliver]
-G-->H[Complete]
+A[Khách hàng]-->B[Cửa hàng]
+B-->C{Chấp nhận?}
+C--Không-->X[Hủy]
+C--Có-->D[Điều phối]
+D-->E[Tài xế]
+E-->F[Lấy món]
+F-->G[Giao hàng]
+G-->H[Hoàn thành]
 ```
 
 ## 6. Technology
@@ -61,14 +61,14 @@ G-->H[Complete]
 - Realtime: Socket.IO
 
 ## 7. Modules & Estimate
-|Module|Days|
+||Module|Days|
 |---|---:|
 |Analysis|5|
-|Backend|30|
-|Customer App|20|
+|Backend|15|
+|Customer App|10|
 |Restaurant App|15|
-|Driver App|18|
-|Admin|18|
+|Driver App|9|
+|Admin|9|
 |Dispatch|8|
 |Realtime|6|
 |Maps|4|
@@ -80,5 +80,5 @@ G-->H[Complete]
 - Monthly: VPS, Backup, Maps (~1–3 triệu VNĐ/tháng cho MVP).
 
 ## 9. Commercial
-- MVP: 180–220 triệu VNĐ
+- MVP: 110–140 triệu VNĐ
 - Warranty: 3 months
