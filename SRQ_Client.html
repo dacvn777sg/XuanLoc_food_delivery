@@ -5,193 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Khảo sát yêu cầu — Xuân Lộc Food Delivery</title>
 <style>
-  :root {
-    --primary: #d97706;
-    --primary-dark: #b45309;
-    --bg: #fffbeb;
-    --text: #1f2937;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --card: #ffffff;
-    --success: #059669;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    min-height: 100vh;
-    padding-bottom: 3rem;
-  }
-  header {
-    background: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
-    color: white;
-    padding: 2.5rem 1.5rem 2rem;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  }
-  header h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-  header .sub { opacity: 0.9; font-size: 0.95rem; }
-  header a {
-    color: white;
-    text-decoration: none;
-    background: rgba(255,255,255,0.2);
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    margin-left: 0.5rem;
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  main {
-    max-width: 50rem;
-    margin: 0 auto;
-    padding: 1.5rem;
-  }
-  blockquote {
-    background: rgba(217, 119, 6, 0.08);
-    border-left: 3px solid var(--primary);
-    padding: 0.75rem 1rem;
-    margin: 1rem 0;
-    border-radius: 0 6px 6px 0;
-    font-size: 0.9rem;
-    color: var(--muted);
-  }
-  h1 { font-size: 1.75rem; color: var(--primary-dark); margin: 1rem 0; }
-  h2 {
-    font-size: 1.4rem;
-    color: var(--primary-dark);
-    margin: 2rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary);
-  }
-  h3 {
-    font-size: 1.05rem;
-    color: var(--text);
-    margin: 1.5rem 0 0.75rem;
-    font-weight: 600;
-  }
-  p { margin: 0.5rem 0; color: var(--muted); }
-  hr { border: none; border-top: 1px dashed var(--border); margin: 2rem 0; }
-  ul.checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0.75rem 0;
-  }
-  ul.checklist li {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    transition: border-color 0.2s;
-  }
-  ul.checklist li:hover { border-color: var(--primary); }
-  ul.checklist label {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    cursor: pointer;
-    user-select: none;
-  }
-  ul.checklist input[type="checkbox"] {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin-top: 0.15rem;
-    accent-color: var(--primary);
-    flex-shrink: 0;
-  }
-  ul.checklist li input.inline {
-    margin-top: 0.5rem;
-    width: 100%;
-    display: none;
-  }
-  ul.checklist li input.inline.show { display: block; }
-  .instruction {
-    font-weight: 600;
-    color: var(--text);
-    margin-top: 0.5rem;
-    margin-bottom: 0.25rem;
-  }
-  .freetext-label {
-    display: block;
-    font-weight: 600;
-    margin: 1rem 0 0.4rem;
-    color: var(--text);
-  }
-  .freetext-input {
-    width: 100%;
-    padding: 0.6rem 0.85rem;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    font-size: 1rem;
-    background: var(--card);
-    transition: border-color 0.2s;
-  }
-  .freetext-input:focus { outline: none; border-color: var(--primary); }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    background: var(--card);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  th, td { padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); }
-  th { background: var(--primary); color: white; font-weight: 600; font-size: 0.9rem; }
-  .actions {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    z-index: 50;
-  }
-  .btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.85rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
-    transition: transform 0.1s, background 0.2s;
-    font-size: 0.95rem;
-  }
-  .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
-  .btn.secondary {
-    background: var(--card);
-    color: var(--primary-dark);
-    border: 1.5px solid var(--primary);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .toast {
-    position: fixed;
-    bottom: 5rem;
-    right: 1.5rem;
-    background: var(--success);
-    color: white;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    z-index: 200;
-  }
-  .toast.show { opacity: 1; }
-  .toast.error { background: #dc2626; }
-  @media (max-width: 640px) {
-    header { padding: 1.5rem 1rem 1rem; }
-    main { padding: 1rem; }
-    .actions { bottom: 1rem; right: 1rem; }
-    .btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
-  }
+  :root { --primary:#d97706; --primary-dark:#b45309; --bg:#fffbeb; --text:#1f2937; --muted:#6b7280; --border:#e5e7eb; --card:#ffffff; --success:#059669; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;padding-bottom:3rem}
+  header{background:linear-gradient(135deg,#f59e0b,#d97706,#b45309);color:white;padding:2.5rem 1.5rem 2rem;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+  header h1{font-size:1.5rem;margin-bottom:.25rem}
+  header .sub{opacity:.9;font-size:.95rem}
+  header a{color:white;text-decoration:none;background:rgba(255,255,255,.2);padding:.4rem .9rem;border-radius:999px;font-size:.85rem;margin-left:.5rem;border:1px solid rgba(255,255,255,.3)}
+  main{max-width:50rem;margin:0 auto;padding:1.5rem}
+  blockquote{background:rgba(217,119,6,.08);border-left:3px solid var(--primary);padding:.75rem 1rem;margin:1rem 0;border-radius:0 6px 6px 0;font-size:.9rem;color:var(--muted)}
+  h1{font-size:1.75rem;color:var(--primary-dark);margin:1rem 0}
+  h2{font-size:1.4rem;color:var(--primary-dark);margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--primary)}
+  h3{font-size:1.05rem;color:var(--text);margin:1.5rem 0 .75rem;font-weight:600}
+  p{margin:.5rem 0;color:var(--muted)}
+  hr{border:none;border-top:1px dashed var(--border);margin:2rem 0}
+  ul.checklist{list-style:none;padding:0;margin:.75rem 0}
+  ul.checklist li{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;margin-bottom:.5rem;transition:border-color .2s}
+  ul.checklist li:hover{border-color:var(--primary)}
+  ul.checklist label{display:flex;align-items:flex-start;gap:.6rem;cursor:pointer;user-select:none}
+  ul.checklist input[type="checkbox"]{width:1.2rem;height:1.2rem;margin-top:.15rem;accent-color:var(--primary);flex-shrink:0}
+  ul.checklist li input.inline{margin-top:.5rem;width:100%;display:none}
+  ul.checklist li input.inline.show{display:block}
+  .instruction{font-weight:600;color:var(--text);margin-top:.5rem;margin-bottom:.25rem}
+  .freetext-label{display:block;font-weight:600;margin:1rem 0 .4rem;color:var(--text)}
+  .freetext-input{width:100%;padding:.6rem .85rem;border:1.5px solid var(--border);border-radius:6px;font-size:1rem;background:var(--card);transition:border-color .2s}
+  .freetext-input:focus{outline:none;border-color:var(--primary)}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;background:var(--card);border-radius:8px;overflow:hidden}
+  th,td{padding:.6rem .85rem;text-align:left;border-bottom:1px solid var(--border)}
+  th{background:var(--primary);color:white;font-weight:600;font-size:.9rem}
+  .actions{position:fixed;bottom:1.5rem;right:1.5rem;display:flex;flex-direction:column;gap:.5rem;z-index:50}
+  .btn{background:var(--primary);color:white;border:none;padding:.85rem 1.5rem;border-radius:999px;font-weight:600;cursor:pointer;box-shadow:0 4px 14px rgba(217,119,6,.4);transition:transform .1s,background .2s;font-size:.95rem}
+  .btn:hover{background:var(--primary-dark);transform:translateY(-2px)}
+  .btn.secondary{background:var(--card);color:var(--primary-dark);border:1.5px solid var(--primary);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .toast{position:fixed;bottom:5rem;right:1.5rem;background:var(--success);color:white;padding:.75rem 1.25rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:200}
+  .toast.show{opacity:1}
+  .toast.error{background:#dc2626}
+  @media (max-width:640px){header{padding:1.5rem 1rem 1rem}main{padding:1rem}.actions{bottom:1rem;right:1rem}.btn{padding:.7rem 1.2rem;font-size:.85rem}}
 </style>
 </head>
 <body>
@@ -1099,24 +948,18 @@
 </main>
 
 <div class="actions">
-  <button class="btn" id="submitBtn" onclick="submitResults()">📤 Gửi kết quả</button>
-  <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
+  <button class="btn secondary" onclick="window.print()">🖨️ In / Lưu PDF</button>
 </div>
 
-<div class="toast" id="toast">✓ Đã gửi thành công!</div>
-<div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
+<div class="toast" id="toast">✓ Đã in!</div>
+<div class="toast error" id="toastError">✗ Lỗi.</div>
 
 <script>
 (function() {
 'use strict';
 
-// Expose functions to global scope for onclick handlers
 window.GITHUB_OWNER = 'dacvn777sg';
 window.GITHUB_REPO = 'XuanLoc_food_delivery';
-
-// Web3Forms Access Key — lấy từ https://web3forms.com sau khi verify email dacvn777sg@gmail.com
-// Key này được phép lộ public vì chỉ có quyền gửi form tới email của bạn.
-window.WEB3FORMS_KEY = 'PASTE_YOUR_WEB3FORMS_KEY_HERE';
 
 function collectAnswers() {
   const sections = document.querySelectorAll('section');
@@ -1170,70 +1013,6 @@ function collectAnswers() {
 }
 window.collectAnswers = collectAnswers;
 
-async function submitResults() {
-  const btn = document.getElementById('submitBtn');
-  const answers = collectAnswers();
-
-  if (!answers.trim() || answers.length < 50) {
-    showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi gửi.');
-    return;
-  }
-
-  if (!window.WEB3FORMS_KEY || window.WEB3FORMS_KEY.startsWith('PASTE_')) {
-    showToast('toastError', '⚠ Form chưa cấu hình Web3Forms key. Vui lòng liên hệ đội ngũ phát triển.');
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Đang gửi...';
-
-  try {
-    const now = new Date().toLocaleString('vi-VN');
-    const userAgent = navigator.userAgent;
-    const mdContent = answers + '
-
----
-
-_Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_';
-
-    const blob = new Blob([mdContent], { type: 'text/markdown' });
-    const fileName = `SRQ-submission-${now.replace(/[/:\s]/g, '-')}.md`;
-
-    const formData = new FormData();
-    formData.append('access_key', window.WEB3FORMS_KEY);
-    formData.append('subject', `📥 SRQ Submission — ${now}`);
-    formData.append('from_name', 'XuanLoc SRQ Form');
-    formData.append('replyto', 'noreply@xuanloc.local');
-    formData.append('message', mdContent);
-    formData.append('attachment', blob, fileName);
-    formData.append('botcheck', '');
-
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      showToast('toast', '✓ Đã gửi thành công! Cảm ơn quý khách.');
-      btn.textContent = '✓ Đã gửi';
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = '📤 Gửi kết quả';
-      }, 5000);
-    } else {
-      throw new Error(data.message || 'Gửi thất bại');
-    }
-  } catch (err) {
-    console.error('Submit failed:', err);
-    showToast('toastError', 'Gửi thất bại: ' + (err.message || 'lỗi không xác định'));
-    btn.disabled = false;
-    btn.textContent = '📤 Gửi kết quả';
-  }
-}
-window.submitResults = submitResults;
-
 function showToast(id, msg) {
   const t = document.getElementById(id);
   if (msg) t.textContent = msg;
@@ -1242,7 +1021,6 @@ function showToast(id, msg) {
 }
 window.showToast = showToast;
 
-// Show inline freetext when "other" checkbox is checked
 document.addEventListener('change', e => {
   if (e.target.matches('input[type="checkbox"][data-other]')) {
     const inline = e.target.closest('li').querySelector('input.inline');
@@ -1252,19 +1030,6 @@ document.addEventListener('change', e => {
     }
   }
 });
-
-// Catch all uncaught errors and show as toast for debugging
-window.addEventListener('error', (e) => {
-  console.error('Global error:', e.error || e.message);
-  const t = document.getElementById('toastError');
-  if (t) {
-    t.textContent = 'Lỗi: ' + (e.message || 'không xác định');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 6000);
-  }
-});
-
-console.log('SRQ form initialized. submitResults available:', typeof window.submitResults);
 
 })();
 </script>
