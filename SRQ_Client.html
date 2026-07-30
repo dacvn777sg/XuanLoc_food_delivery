@@ -1340,21 +1340,39 @@ window.collectAnswers = collectAnswers;
 
 function downloadMarkdown() {
   const content = collectAnswers();
+  console.log('downloadMarkdown called, content length:', content.length);
+
   if (!content.trim() || content.length < 50) {
-    showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi tải.');
+    console.warn('Content too short, showing error toast');
+    showToast('toastError', '⚠️ Vui lòng tick ít nhất 1 đáp án trước khi tải.');
     return;
   }
+
   const now = new Date().toLocaleString('vi-VN').replace(/[\/:]/g, '-').replace(/,/g, '');
-  const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `SRQ-submission-${now}.md`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  showToast('toast', '✓ Đã tải file Markdown về máy!');
+  const filename = `SRQ-submission-${now}.md`;
+
+  try {
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+
+    // Some browsers need a small delay before cleanup
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+
+    console.log('Download triggered:', filename);
+    showToast('toast', '✓ Đã tải file Markdown về máy! Kiểm tra thư mục Downloads.');
+  } catch (err) {
+    console.error('Download failed:', err);
+    showToast('toastError', '⚠️ Lỗi khi tải file: ' + err.message);
+  }
 }
 window.downloadMarkdown = downloadMarkdown;
 
