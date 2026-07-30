@@ -1,8 +1,5 @@
 # Khảo sát yêu cầu — Nền tảng giao đồ ăn Xuân Lộc
 
-> **Phiên bản gửi khách hàng** - đã lọc bỏ các câu hỏi về ngân sách, timeline và nội bộ.
-> **76 câu hỏi** · dự kiến hoàn thành trong 30-45 phút.
-
 Xin chào quý khách,
 
 Đây là bản khảo sát yêu cầu phần mềm cho dự án nền tảng giao đồ ăn Xuân Lộc. Mục đích của chúng tôi là hiểu rõ nhu cầu nghiệp vụ, quy trình vận hành hiện tại và mong muốn của quý khách để đề xuất giải pháp phù hợp nhất.
