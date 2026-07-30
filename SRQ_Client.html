@@ -40,6 +40,7 @@
   .toast{position:fixed;bottom:5rem;right:1.5rem;background:var(--success);color:white;padding:.75rem 1.25rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:200}
   .toast.show{opacity:1}
   .toast.error{background:#dc2626}
+  @media print{.actions,header,.toast{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:100%}h2{break-after:avoid}h3{break-after:avoid}ul.checklist li{break-inside:avoid;border:1px solid #ccc}}
   @media (max-width:640px){header{padding:1.5rem 1rem 1rem}main{padding:1rem}.actions{bottom:1rem;right:1rem}.btn{padding:.7rem 1.2rem;font-size:.85rem}}
 </style>
 </head>
