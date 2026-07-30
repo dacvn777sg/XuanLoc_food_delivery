@@ -1109,15 +1109,7 @@
 <script>
 const GITHUB_OWNER = 'dacvn777sg';
 const GITHUB_REPO = 'XuanLoc_food_delivery';
-let GITHUB_TOKEN = '';
-
-// Load token from external config.js (kept out of git)
-fetch('config.js')
-  .then(r => r.ok ? r.text() : '')
-  .then(text => {
-    try { eval(text); } catch (e) { console.warn('config.js error:', e); }
-  })
-  .catch(() => {});
+const GITHUB_TOKEN = 'PASTE_YOUR_GITHUB_PAT_HERE'; // ← thay bằng token mới của bạn
 
 function collectAnswers() {
   const sections = document.querySelectorAll('section');
@@ -1185,7 +1177,7 @@ async function submitResults() {
   try {
     if (!GITHUB_TOKEN) {
       showToast('toastError', '⚠ Form chưa được cấu hình. Vui lòng liên hệ đội ngũ phát triển.');
-      throw new Error('No GITHUB_TOKEN configured in config.js');
+      throw new Error('No GITHUB_TOKEN configured in HTML');
     }
 
     const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
