@@ -37,7 +37,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Website đặt món cho khách.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
-- [ ] Kênh khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -109,7 +108,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Được hủy ở các trạng thái khác *(có ô nhập bổ sung)*
 - [ ] Chưa xác định — cần tư vấn.
 
-- [ ] Được hủy ở các trạng thái khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -124,7 +122,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Đang mở rộng sang khu vực mới.
 - [ ] Khác *(có ô nhập bổ sung)*
 
-- [ ] Khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -144,7 +141,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Mục tiêu khác *(có ô nhập bổ sung)*
 
 **Mục tiêu ưu tiên số 1:** _______________________________________________
-- [ ] Mục tiêu khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -161,7 +157,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Chưa vận hành.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
-- [ ] Kênh khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -194,7 +189,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Khó mở rộng thêm cửa hàng/khu vực.
 - [ ] Khó khăn khác *(có ô nhập bổ sung)*
 
-- [ ] Khó khăn khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -208,7 +202,6 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Nhiều tỉnh/thành phố.
 - [ ] Khu vực cụ thể *(có ô nhập bổ sung)*
 
-- [ ] Khu vực cụ thể: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -241,7 +234,6 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Có ngày nghỉ cố định *(có ô nhập bổ sung)*
 
 - [ ] Theo giờ mở cửa chung: từ ________ đến ________. *(có ô nhập bổ sung)*
-- [ ] Có ngày nghỉ cố định: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -294,7 +286,6 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Facebook.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
-- [ ] Cách khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -324,7 +315,6 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Danh sách cửa hàng nổi bật/được đề xuất.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
-- [ ] Cách khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -386,7 +376,6 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Hủy đơn nếu vẫn còn được phép.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
-- [ ] Nội dung khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -473,7 +462,6 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Món nổi bật.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
-- [ ] Nội dung khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -535,17 +523,6 @@ Khách đặt món
 - [ ] Đồng ý với luồng trên.
 - [ ] Cần điều chỉnh như sau *(có ô nhập bổ sung)*
 
-```text
-Khách đặt món
-→ Cửa hàng chấp nhận
-→ Hệ thống/nhân viên tìm tài xế
-→ Tài xế nhận đơn
-→ Tài xế đến cửa hàng
-→ Cửa hàng bàn giao món
-→ Tài xế giao cho khách và thu tiền
-→ Đơn hoàn thành
-```
-- [ ] Cần điều chỉnh như sau: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -572,7 +549,6 @@ Khách đặt món
 - [ ] Trường hợp khác *(có ô nhập bổ sung)*
 
 - [ ] Khi chưa tìm được tài xế sau ________ phút. *(có ô nhập bổ sung)*
-- [ ] Trường hợp khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -587,7 +563,6 @@ Khách đặt món
 - [ ] Sau khi đã chấp nhận, cửa hàng không được tự hủy.
 - [ ] Trường hợp khác *(có ô nhập bổ sung)*
 
-- [ ] Trường hợp khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -615,7 +590,6 @@ Khách đặt món
 - [ ] Tự động hủy sau  phút. *(có ô nhập bổ sung)*
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
-- [ ] Cách khác: ______________________________________________ *(có ô nhập bổ sung)*
 - [ ] Tự động hủy sau ________ phút. *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
@@ -631,7 +605,6 @@ Khách đặt món
 - [ ] Khách chịu một khoản phí theo chính sách.
 - [ ] Cách xử lý khác *(có ô nhập bổ sung)*
 
-- [ ] Cách xử lý khác: ______________________________________________ *(có ô nhập bổ sung)*
 - [ ] Tài xế thử liên hệ ít nhất ________ lần trong ________ phút. *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
@@ -744,7 +717,6 @@ Khách đặt món
 - [ ] Chuyển hoàn toàn sang xử lý thủ công.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
-- [ ] Cách khác: ______________________________________________ *(có ô nhập bổ sung)*
 - [ ] Thông báo nhân viên vận hành sau ________ lần thất bại. *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
@@ -817,7 +789,6 @@ Khách đặt món
 - [ ] Doanh nghiệp hỗ trợ một phần.
 - [ ] Chia theo quy tắc khác *(có ô nhập bổ sung)*
 
-- [ ] Chia theo quy tắc khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -830,7 +801,6 @@ Khách đặt món
 - [ ] Chỉ phí giao hàng.
 - [ ] Khoản khác *(có ô nhập bổ sung)*
 
-- [ ] Khoản khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -845,7 +815,6 @@ Khách đặt món
 - [ ] Doanh nghiệp chưa có quy trình — cần tư vấn.
 - [ ] Quy trình khác *(có ô nhập bổ sung)*
 
-- [ ] Quy trình khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -860,7 +829,6 @@ Khách đặt món
 - [ ] Kết hợp lương và phí theo đơn.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
-- [ ] Cách khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -902,7 +870,6 @@ Khách đặt món
 - [ ] Chỉ cần một loại tài khoản Admin trong MVP.
 - [ ] Vai trò khác *(có ô nhập bổ sung)*
 
-- [ ] Vai trò khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -922,7 +889,6 @@ Khách đặt món
 - [ ] Thông báo hệ thống.
 - [ ] Cấu hình khác *(có ô nhập bổ sung)*
 
-- [ ] Cấu hình khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -1024,7 +990,6 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Xuất Excel/CSV.
 - [ ] Báo cáo khác *(có ô nhập bổ sung)*
 
-- [ ] Báo cáo khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -1052,7 +1017,6 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Chat trực tiếp trong ứng dụng — tính năng tương lai.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
-- [ ] Kênh khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -1115,7 +1079,6 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Tiếng Việt và tiếng Anh.
 - [ ] Ngôn ngữ khác *(có ô nhập bổ sung)*
 
-- [ ] Ngôn ngữ khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -1164,7 +1127,6 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Chưa có; cần hướng dẫn đăng ký.
 - [ ] Khác *(có ô nhập bổ sung)*
 
-- [ ] Khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
@@ -1202,7 +1164,6 @@ Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
 - [ ] Hỗ trợ đưa ứng dụng lên App Store/Google Play.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
-- [ ] Nội dung khác: ______________________________________________ *(có ô nhập bổ sung)*
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
