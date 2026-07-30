@@ -1273,10 +1273,11 @@
 
 <div class="actions">
   <button class="btn secondary" onclick="window.print()">🖨️ In / Lưu PDF</button>
+  <button class="btn secondary" onclick="downloadMarkdown()">📥 Tải file Markdown</button>
 </div>
 
-<div class="toast" id="toast">✓ Đã in!</div>
-<div class="toast error" id="toastError">✗ Lỗi.</div>
+<div class="toast" id="toast">✓ Đã tải file Markdown về máy!</div>
+<div class="toast error" id="toastError">✗ Vui lòng tick ít nhất 1 đáp án.</div>
 
 <script>
 (function() {
@@ -1336,6 +1337,26 @@ function collectAnswers() {
 ');
 }
 window.collectAnswers = collectAnswers;
+
+function downloadMarkdown() {
+  const content = collectAnswers();
+  if (!content.trim() || content.length < 50) {
+    showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi tải.');
+    return;
+  }
+  const now = new Date().toLocaleString('vi-VN').replace(/[\/:]/g, '-').replace(/,/g, '');
+  const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `SRQ-submission-${now}.md`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('toast', '✓ Đã tải file Markdown về máy!');
+}
+window.downloadMarkdown = downloadMarkdown;
 
 function showToast(id, msg) {
   const t = document.getElementById(id);
