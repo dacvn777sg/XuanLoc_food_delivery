@@ -160,6 +160,8 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 ### Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào?
 
+> Vui lòng mô tả ngắn gọn ai nhận đơn, ai xác nhận món, ai gọi tài xế, ai thu tiền và ai xử lý khi có sự cố.
+
 **Mô tả chi tiết:** _______________________________________________
 
 **Mô tả chi tiết:** _______________________________________________
