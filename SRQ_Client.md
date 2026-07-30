@@ -10,14 +10,17 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 ## Phần A - Thông tin doanh nghiệp
 
-| Câu hỏi | Loại |
-|---|---|
-| Tên dự án | Ô nhập text |
-| Tên doanh nghiệp | Ô nhập text |
-| Người đại diện | Ô nhập text |
-| Người phối hợp nghiệp vụ | Ô nhập text |
-| Đơn vị tư vấn/phát triển | Ô nhập text |
-| Ngày thực hiện khảo sát | Chọn ngày |
+**Tên dự án:** _______________________________________________
+
+**Tên doanh nghiệp:** _______________________________________________
+
+**Người đại diện:** _______________________________________________
+
+**Người phối hợp nghiệp vụ:** _______________________________________________
+
+**Đơn vị tư vấn/phát triển:** _______________________________________________
+
+**Ngày thực hiện khảo sát:** _______________________________________________
 
 ---
 
