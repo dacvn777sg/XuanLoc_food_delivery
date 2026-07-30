@@ -1,1495 +1,1273 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khảo sát yêu cầu — Xuân Lộc Food Delivery</title>
-  <style>
-    :root {
-      --primary: #d97706;
-      --primary-dark: #b45309;
-      --bg: #fffbeb;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --card: #ffffff;
-      --success: #059669;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      min-height: 100vh;
-      padding-bottom: 3rem;
-    }
-
-    header {
-      background: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
-      color: white;
-      padding: 2.5rem 1.5rem 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    header .sub {
-      opacity: 0.9;
-      font-size: 0.95rem;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      margin-left: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    main {
-      max-width: 50rem;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
-    blockquote {
-      background: rgba(217, 119, 6, 0.08);
-      border-left: 3px solid var(--primary);
-      padding: 0.75rem 1rem;
-      margin: 1rem 0;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    h1 {
-      font-size: 1.75rem;
-      color: var(--primary-dark);
-      margin: 1rem 0;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-      margin: 2rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary);
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      color: var(--text);
-      margin: 1.5rem 0 0.75rem;
-      font-weight: 600;
-    }
-
-    p {
-      margin: 0.5rem 0;
-      color: var(--muted);
-    }
-
-    hr {
-      border: none;
-      border-top: 1px dashed var(--border);
-      margin: 2rem 0;
-    }
-
-    ul.checklist {
-      list-style: none;
-      padding: 0;
-      margin: 0.75rem 0;
-    }
-
-    ul.checklist li {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.5rem;
-      transition: border-color 0.2s;
-    }
-
-    ul.checklist li:hover {
-      border-color: var(--primary);
-    }
-
-    ul.checklist label {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    ul.checklist input[type="checkbox"] {
-      width: 1.2rem;
-      height: 1.2rem;
-      margin-top: 0.15rem;
-      accent-color: var(--primary);
-      flex-shrink: 0;
-    }
-
-    ul.checklist li input.inline {
-      margin-top: 0.5rem;
-      width: 100%;
-      display: none;
-    }
-
-    ul.checklist li input.inline.show {
-      display: block;
-    }
-
-    .instruction {
-      font-weight: 600;
-      color: var(--text);
-      margin-top: 0.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .freetext-label {
-      display: block;
-      font-weight: 600;
-      margin: 1rem 0 0.4rem;
-      color: var(--text);
-    }
-
-    .freetext-input {
-      width: 100%;
-      padding: 0.6rem 0.85rem;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
-      background: var(--card);
-      transition: border-color 0.2s;
-    }
-
-    .freetext-input:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      background: var(--card);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th,
-    td {
-      padding: 0.6rem 0.85rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .actions {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      z-index: 50;
-    }
-
-    .btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.85rem 1.5rem;
-      border-radius: 999px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
-      transition: transform 0.1s, background 0.2s;
-      font-size: 0.95rem;
-    }
-
-    .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn.secondary {
-      background: var(--card);
-      color: var(--primary-dark);
-      border: 1.5px solid var(--primary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 5rem;
-      right: 1.5rem;
-      background: var(--success);
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      z-index: 200;
-    }
-
-    .toast.show {
-      opacity: 1;
-    }
-
-    .toast.error {
-      background: #dc2626;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 1.5rem 1rem 1rem;
-      }
-
-      main {
-        padding: 1rem;
-      }
-
-      .actions {
-        bottom: 1rem;
-        right: 1rem;
-      }
-
-      .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.85rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khảo sát yêu cầu — Xuân Lộc Food Delivery</title>
+<style>
+  :root {
+    --primary: #d97706;
+    --primary-dark: #b45309;
+    --bg: #fffbeb;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --card: #ffffff;
+    --success: #059669;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+  }
+  header {
+    background: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
+    color: white;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  header h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  header .sub { opacity: 0.9; font-size: 0.95rem; }
+  header a {
+    color: white;
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  main {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  blockquote {
+    background: rgba(217, 119, 6, 0.08);
+    border-left: 3px solid var(--primary);
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  h1 { font-size: 1.75rem; color: var(--primary-dark); margin: 1rem 0; }
+  h2 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+  }
+  h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin: 1.5rem 0 0.75rem;
+    font-weight: 600;
+  }
+  p { margin: 0.5rem 0; color: var(--muted); }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 2rem 0; }
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0;
+  }
+  ul.checklist li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  ul.checklist li:hover { border-color: var(--primary); }
+  ul.checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  ul.checklist input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.15rem;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+  }
+  ul.checklist li input.inline {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: none;
+  }
+  ul.checklist li input.inline.show { display: block; }
+  .instruction {
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .freetext-label {
+    display: block;
+    font-weight: 600;
+    margin: 1rem 0 0.4rem;
+    color: var(--text);
+  }
+  .freetext-input {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: var(--card);
+    transition: border-color 0.2s;
+  }
+  .freetext-input:focus { outline: none; border-color: var(--primary); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td { padding: 0.6rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: var(--primary); color: white; font-weight: 600; font-size: 0.9rem; }
+  .actions {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 50;
+  }
+  .btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+    transition: transform 0.1s, background 0.2s;
+    font-size: 0.95rem;
+  }
+  .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  .btn.secondary {
+    background: var(--card);
+    color: var(--primary-dark);
+    border: 1.5px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .toast {
+    position: fixed;
+    bottom: 5rem;
+    right: 1.5rem;
+    background: var(--success);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 200;
+  }
+  .toast.show { opacity: 1; }
+  .toast.error { background: #dc2626; }
+  @media (max-width: 640px) {
+    header { padding: 1.5rem 1rem 1rem; }
+    main { padding: 1rem; }
+    .actions { bottom: 1rem; right: 1rem; }
+    .btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+  }
+</style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Khảo sát yêu cầu — Xuân Lộc Food Delivery</h1>
-    <p class="sub">76 câu hỏi · ~30 phút · <a href="index.html">← Về trang chủ</a></p>
-  </header>
+<header>
+  <h1>Khảo sát yêu cầu — Xuân Lộc Food Delivery</h1>
+  <p class="sub">76 câu hỏi · ~30 phút · <a href="index.html">← Về trang chủ</a></p>
+</header>
 
-  <main>
-    <h1>Khảo sát yêu cầu — Nền tảng giao đồ ăn Xuân Lộc</h1>
-    <blockquote>**Phiên bản gửi khách hàng** - đã lọc bỏ các câu hỏi về ngân sách, timeline và nội bộ.</blockquote>
-    <blockquote>**76 câu hỏi** · dự kiến hoàn thành trong 30-45 phút.</blockquote>
-    <p>Xin chào quý khách,</p>
-    <p>Đây là bản khảo sát yêu cầu phần mềm cho dự án nền tảng giao đồ ăn Xuân Lộc. Mục đích của chúng tôi là hiểu rõ
-      nhu cầu nghiệp vụ, quy trình vận hành hiện tại và mong muốn của quý khách để đề xuất giải pháp phù hợp nhất.</p>
-    <p>Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thông tin quý khách cung cấp sẽ được bảo mật theo thỏa
-      thuận hợp tác.</p>
-    <hr>
-    <section class='section'>
-      <h2>Phần A - Thông tin doanh nghiệp</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Câu hỏi</th>
-            <th>Loại</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tên dự án</td>
-            <td>Ô nhập text</td>
-          </tr>
-          <tr>
-            <td>Tên doanh nghiệp</td>
-            <td>Ô nhập text</td>
-          </tr>
-          <tr>
-            <td>Người đại diện</td>
-            <td>Ô nhập text</td>
-          </tr>
-          <tr>
-            <td>Người phối hợp nghiệp vụ</td>
-            <td>Ô nhập text</td>
-          </tr>
-          <tr>
-            <td>Đơn vị tư vấn/phát triển</td>
-            <td>Ô nhập text</td>
-          </tr>
-          <tr>
-            <td>Ngày thực hiện khảo sát</td>
-            <td>Chọn ngày</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <section class='section'>
-        <h2>Phần B - Khảo sát nghiệp vụ & kỹ thuật</h2>
-      </section>
-      <section class='question'>
-        <h3>Q01. Hệ thống dự kiến gồm những kênh sử dụng nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Ứng dụng cho khách đặt món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ứng dụng cho cửa hàng nhận và xử lý đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ứng dụng cho tài xế nhận và giao đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Website quản trị dành cho nhân viên vận hành.</span></label></li>
-          <li><label><input type="checkbox"> <span>Website đặt món cho khách.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q02. Mỗi cửa hàng trong phiên bản đầu tiên chỉ có một địa chỉ hoạt động?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đúng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không, một cửa hàng có thể có nhiều chi nhánh.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hiện tại một địa chỉ, nhưng cần chuẩn bị cho nhiều chi nhánh trong
-                tương lai.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q03. Mỗi đơn hàng chỉ được đặt từ một cửa hàng?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đúng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không, khách có thể đặt từ nhiều cửa hàng trong cùng một
-                đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q04. Mỗi tài xế chỉ giao một đơn tại một thời điểm trong MVP?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đúng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không, tài xế có thể nhận nhiều đơn cùng lúc.</span></label></li>
-          <li><label><input type="checkbox"> <span>MVP một đơn; tương lai cần hỗ trợ ghép nhiều đơn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q05. Hình thức thanh toán chính của MVP là tiền mặt khi nhận hàng (COD)?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đúng, chỉ COD.</span></label></li>
-          <li><label><input type="checkbox"> <span>COD và chuyển khoản trực tiếp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần thanh toán trực tuyến ngay trong MVP.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q06. Việc chọn tài xế được thực hiện như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Hệ thống tự chọn tài xế phù hợp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên vận hành chọn tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hệ thống tự chọn; nhân viên có thể can thiệp khi cần.</span></label>
-          </li>
-          <li><label><input type="checkbox"> <span>Cửa hàng tự chọn tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q07. Khách không được tự hủy sau khi cửa hàng đã chấp nhận đơn?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đúng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Vẫn được hủy nhưng cần cửa hàng/Admin phê duyệt.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Được hủy ở các trạng thái khác</span></label><input
-              type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q08. Thông tin doanh nghiệp và đầu mối dự án</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q09. Dự án đang ở giai đoạn nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Ý tưởng ban đầu.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đang thử nghiệm thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đã có cửa hàng và tài xế hoạt động.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đã có phần mềm nhưng cần thay thế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đang mở rộng sang khu vực mới.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q10. Ba mục tiêu quan trọng nhất của dự án là gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tăng số lượng đơn hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giảm thời gian xử lý đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tự động hóa việc tìm tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giảm sai sót khi nhận và giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Theo dõi đơn hàng minh bạch hơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Quản lý cửa hàng tập trung.</span></label></li>
-          <li><label><input type="checkbox"> <span>Quản lý tiền COD và đối soát.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có dữ liệu báo cáo để ra quyết định.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xây dựng thương hiệu và kênh bán riêng.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Mục tiêu khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q11. Hiện nay đơn hàng đến từ những kênh nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Điện thoại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Zalo.</span></label></li>
-          <li><label><input type="checkbox"> <span>Facebook/Messenger.</span></label></li>
-          <li><label><input type="checkbox"> <span>Website.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ứng dụng hiện có.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên nhập đơn trực tiếp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa vận hành.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào?</h3>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q13. Những khó khăn lớn nhất trong quy trình hiện tại là gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Bỏ sót hoặc nhập sai đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng phản hồi chậm.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khó tìm tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không biết tài xế đang ở đâu.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khách liên hệ hỏi trạng thái quá nhiều.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khó quản lý tiền thu hộ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khó xử lý đơn hủy hoặc giao thất bại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không có báo cáo chính xác.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khó mở rộng thêm cửa hàng/khu vực.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khó khăn khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q14. Dự án được xem là thành công khi đạt được kết quả nào?</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q15. Khu vực triển khai ban đầu ở đâu?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Một xã/phường hoặc khu vực nhỏ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Một huyện/quận.</span></label></li>
-          <li><label><input type="checkbox"> <span>Một tỉnh/thành phố.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhiều tỉnh/thành phố.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khu vực cụ thể</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q16. Quy mô dự kiến trong 6 tháng đầu</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q17. Hệ thống cần hoạt động trong khung giờ nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox" data-other="1"> <span>Theo giờ mở cửa chung: từ đến .</span></label><input
-              type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Mỗi cửa hàng có giờ mở cửa riêng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hoạt động 24/7.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Có ngày nghỉ cố định</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q18. Khách được đặt giao trong phạm vi nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chỉ trong khu vực phục vụ cố định.</span></label></li>
-          <li><label><input type="checkbox"> <span>Trong khoảng cách tối đa tính từ cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Theo danh sách xã/phường được cấu hình.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên kiểm tra và xác nhận thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q19. Cách triển khai mong muốn</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Thử nghiệm với một số cửa hàng và tài xế trước.</span></label></li>
-          <li><label><input type="checkbox"> <span>Mở toàn bộ khu vực ngay khi ra mắt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Triển khai theo nhiều giai đoạn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q20. Khách có bắt buộc đăng ký tài khoản trước khi đặt món?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Có.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không, được đặt nhanh bằng số điện thoại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Được xem món không cần tài khoản; đăng nhập khi xác nhận
-                đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q21. Khách đăng nhập bằng cách nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Số điện thoại và mã xác nhận OTP.</span></label></li>
-          <li><label><input type="checkbox"> <span>Số điện thoại và mật khẩu.</span></label></li>
-          <li><label><input type="checkbox"> <span>Google.</span></label></li>
-          <li><label><input type="checkbox"> <span>Apple.</span></label></li>
-          <li><label><input type="checkbox"> <span>Facebook.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q22. Khách cần quản lý địa chỉ giao hàng như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chỉ nhập địa chỉ cho từng đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Lưu được nhiều địa chỉ như Nhà, Công ty.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chọn vị trí trên bản đồ và bổ sung mô tả.</span></label></li>
-          <li><label><input type="checkbox"> <span>Dùng vị trí hiện tại của điện thoại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên xác nhận lại địa chỉ qua điện thoại.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q23. Khách tìm cửa hàng và món ăn theo cách nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Danh sách cửa hàng gần nhất.</span></label></li>
-          <li><label><input type="checkbox"> <span>Danh mục món ăn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tìm theo tên cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tìm theo tên món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Lọc theo khoảng cách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Lọc theo trạng thái đang mở cửa.</span></label></li>
-          <li><label><input type="checkbox"> <span>Danh sách cửa hàng nổi bật/được đề xuất.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q24. Khách cần thao tác gì khi chọn món?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chọn số lượng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chọn kích cỡ/phiên bản món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chọn topping hoặc món thêm.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ghi chú cho từng món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem thành phần hoặc mô tả món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem ảnh món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần tùy chọn phức tạp.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q25. Thông tin nào cần hiển thị trước khi khách xác nhận đơn?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Danh sách món và số lượng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giá từng món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tổng tiền cần thanh toán.</span></label></li>
-          <li><label><input type="checkbox"> <span>Địa chỉ giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thời gian giao dự kiến.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ghi chú cho cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ghi chú cho tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Điều kiện hủy đơn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q26. Khách có được đặt món trước theo ngày/giờ không?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Không, chỉ đặt giao ngay.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có, chọn thời gian mong muốn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ một số cửa hàng hỗ trợ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tính năng tương lai.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q27. Trong lúc giao, khách cần xem hoặc thực hiện những gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Xem trạng thái đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem thời gian giao dự kiến.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem vị trí tài xế trên bản đồ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem tên và số điện thoại tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Gọi tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Gọi cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Liên hệ bộ phận hỗ trợ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hủy đơn nếu vẫn còn được phép.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q28. Một cửa hàng cần bao nhiêu người sử dụng hệ thống?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Một tài khoản dùng chung.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhiều tài khoản nhân viên.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có chủ cửa hàng và nhân viên với quyền khác nhau.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q29. Cửa hàng cần quản lý trạng thái hoạt động nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Mở cửa/Đóng cửa theo lịch.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tạm dừng nhận đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Quá tải — kéo dài thời gian chuẩn bị.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nghỉ đột xuất.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần, Admin quản lý toàn bộ.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q30. Khi có đơn mới, cửa hàng cần làm gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Nhận thông báo và âm thanh cảnh báo.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xem chi tiết đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chấp nhận đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Từ chối và chọn lý do.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhập thời gian chuẩn bị dự kiến.</span></label></li>
-          <li><label><input type="checkbox"> <span>Liên hệ khách khi cần.</span></label></li>
-          <li><label><input type="checkbox"> <span>In phiếu bếp/in hóa đơn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q31. Nếu cửa hàng không phản hồi đơn trong thời gian quy định thì xử lý thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Nhắc lại cho cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thông báo nhân viên vận hành.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tự động hủy đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên gọi xác nhận thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q32. Ai chịu trách nhiệm tạo và cập nhật thực đơn?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Cửa hàng tự quản lý.</span></label></li>
-          <li><label><input type="checkbox"> <span>Admin quản lý cho cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng cập nhật; Admin phê duyệt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhập dữ liệu ban đầu bởi đội dự án, sau đó cửa hàng quản
-                lý.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q33. Thực đơn cần hỗ trợ những nội dung nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Danh mục món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tên và mô tả món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ảnh món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giá bán.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giá khuyến mãi.</span></label></li>
-          <li><label><input type="checkbox"> <span>Kích cỡ/phiên bản món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Topping/món thêm.</span></label></li>
-          <li><label><input type="checkbox"> <span>Món bán theo khung giờ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Món nổi bật.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q34. Cửa hàng xử lý món tạm hết như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Bật/tắt món thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chọn thời gian món có lại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Báo khách và đề xuất đổi món sau khi đã đặt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Admin cập nhật thay cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần quản lý tồn món trong MVP.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q35. Cửa hàng có được tự thay đổi giá món?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Có, áp dụng ngay.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có, nhưng cần Admin phê duyệt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không, chỉ Admin được thay đổi.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q36. Cửa hàng cần xem những thông tin nào sau bán hàng?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Lịch sử đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Số đơn hoàn thành/hủy.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh thu theo ngày/tháng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Số tiền cần đối soát.</span></label></li>
-          <li><label><input type="checkbox"> <span>Món bán chạy.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đánh giá/phản hồi của khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần báo cáo trong MVP.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q37. Vui lòng xác nhận luồng đơn hàng cơ bản</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đồng ý với luồng trên.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cần điều chỉnh như sau</span></label><input
-              type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q38. Cửa hàng có cần cập nhật riêng trạng thái “đang chuẩn bị” và “đã sẵn sàng”?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Có cả hai trạng thái.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ cần “đã sẵn sàng”.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần; khi chấp nhận được xem là đang chuẩn bị.</span></label>
-          </li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q39. Khách được hủy đơn trong trường hợp nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Trước khi cửa hàng chấp nhận.</span></label></li>
-          <li><label><input type="checkbox"> <span>Sau khi cửa hàng chấp nhận nhưng chưa chuẩn bị.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khi chưa tìm được tài xế sau
-                phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..."
-              style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Chỉ Admin có quyền hủy sau khi cửa hàng chấp nhận.</span></label>
-          </li>
-          <li><label><input type="checkbox" data-other="1"> <span>Trường hợp khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q40. Cửa hàng được hủy/từ chối đơn trong trường hợp nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Hết món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đóng cửa/quá tải.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không giao được đến khu vực của khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không liên hệ được khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Sau khi đã chấp nhận, cửa hàng không được tự hủy.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Trường hợp khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q41. Nếu một món trong đơn bị hết sau khi khách đã đặt thì xử lý thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Cửa hàng từ chối toàn bộ đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng gọi khách để đổi món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng đề xuất món thay thế trên hệ thống.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xóa món hết và điều chỉnh tổng tiền với sự đồng ý của
-                khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên vận hành xử lý thủ công.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q42. Nếu không tìm được tài xế thì xử lý thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tiếp tục tìm trong phạm vi rộng hơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chuyển cho nhân viên vận hành chọn thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thông báo khách chờ thêm.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cho khách hủy đơn.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Tự động hủy sau phút.</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q43. Nếu khách không nghe máy hoặc không nhận hàng thì xử lý thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox" data-other="1"> <span>Tài xế thử liên hệ ít nhất lần trong
-                phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..."
-              style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Tài xế liên hệ bộ phận hỗ trợ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế trả món về cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đơn được đánh dấu giao thất bại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khách chịu một khoản phí theo chính sách.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách xử lý khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q44. Cần bằng chứng nào để xác nhận giao hàng thành công?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tài xế bấm “Đã giao”.</span></label></li>
-          <li><label><input type="checkbox"> <span>Mã xác nhận từ khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ảnh giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chữ ký người nhận.</span></label></li>
-          <li><label><input type="checkbox"> <span>Vị trí GPS tại điểm giao.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần bằng chứng bổ sung trong MVP.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q45. Ai tạo tài khoản tài xế?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tài xế tự đăng ký.</span></label></li>
-          <li><label><input type="checkbox"> <span>Admin tạo tài khoản.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế đăng ký và Admin phê duyệt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh nghiệp nhập danh sách tài xế có sẵn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q46. Tài xế cần cung cấp/xác minh thông tin nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Họ tên và số điện thoại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Ảnh đại diện.</span></label></li>
-          <li><label><input type="checkbox"> <span>CCCD/giấy tờ tùy thân.</span></label></li>
-          <li><label><input type="checkbox"> <span>Giấy phép lái xe.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thông tin phương tiện và biển số.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài khoản ngân hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khu vực hoạt động.</span></label></li>
-          <li><label><input type="checkbox"> <span>Không cần xác minh giấy tờ trong MVP.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q47. Tài xế cần những trạng thái hoạt động nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Online — sẵn sàng nhận đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đang xem đề nghị giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đang thực hiện đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tạm nghỉ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Offline.</span></label></li>
-          <li><label><input type="checkbox"> <span>Bị tạm khóa bởi Admin.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q48. Tiêu chí nào quan trọng khi hệ thống chọn tài xế?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Gần cửa hàng nhất.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đang online và không có đơn khác.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hoạt động trong đúng khu vực.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đã chờ lâu nhưng chưa nhận được đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tỷ lệ nhận/hoàn thành đơn tốt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên vận hành ưu tiên thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ cần tiêu chí đơn giản cho MVP: gần nhất và đang
-                rảnh.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q49. Đề nghị giao hàng nên được gửi như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Gửi lần lượt cho từng tài xế; hết thời gian mới chuyển người tiếp
-                theo.</span></label></li>
-          <li><label><input type="checkbox"> <span>Gửi cho một nhóm tài xế gần nhất; người nhận trước được giao
-                đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên chọn và gửi cho một tài xế cụ thể.</span></label></li>
-          <li><label><input type="checkbox"> <span>Kết hợp tự động và thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q50. Tài xế có bao lâu để chấp nhận đề nghị giao hàng?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>10 giây.</span></label></li>
-          <li><label><input type="checkbox"> <span>15 giây.</span></label></li>
-          <li><label><input type="checkbox"> <span>30 giây.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Thời gian khác: giây.</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q51. Khi tài xế từ chối hoặc không phản hồi thì sao?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tự động tìm tài xế tiếp theo.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hỏi lý do từ chối.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Thông báo nhân viên vận hành sau lần thất
-                bại.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..."
-              style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Chuyển hoàn toàn sang xử lý thủ công.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q52. Tài xế có được hủy sau khi đã nhận đơn?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Không.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có, phải chọn lý do.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có, nhưng cần Admin phê duyệt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ trong trường hợp khẩn cấp.</span></label></li>
-        </ul>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q53. Khi tài xế đã nhận nhưng không di chuyển hoặc mất kết nối thì xử lý thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Gửi nhắc nhở cho tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thông báo nhân viên vận hành.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cho phép Admin đổi tài xế.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Tự động đổi tài xế sau phút.</span></label><input
-              type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Nhân viên gọi xác nhận trước khi đổi.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q54. Tài xế và khách cần sử dụng bản đồ như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tài xế xem đường đến cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế xem đường đến khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Mở ứng dụng Google Maps/Apple Maps để dẫn đường.</span></label></li>
-          <li><label><input type="checkbox"> <span>Dẫn đường ngay trong ứng dụng tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khách xem vị trí tài xế khi đơn đang giao.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng xem vị trí tài xế đang đến lấy món.</span></label></li>
-          <li><label><input type="checkbox"> <span>Admin xem vị trí các tài xế đang hoạt động.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q55. Phí giao hàng được tính theo cách nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Mức phí cố định cho mọi đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Theo khoảng cách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Theo khu vực/xã/phường.</span></label></li>
-          <li><label><input type="checkbox"> <span>Theo từng cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Admin nhập thủ công.</span></label></li>
-          <li><label><input type="checkbox"> <span>Miễn phí giao hàng trong một số trường hợp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q56. Phí giao hàng được hiển thị và thu như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Cộng vào tổng tiền khách trả tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng trả phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh nghiệp hỗ trợ một phần.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Chia theo quy tắc khác</span></label><input
-              type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q57. Tài xế sẽ thu những khoản tiền nào từ khách?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tiền món ăn và phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ tiền món ăn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khoản khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q58. Tiền COD được đối soát theo quy trình nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tài xế ứng trước/nộp tiền món cho cửa hàng khi nhận món, sau đó thu
-                lại từ khách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế thu tiền và nộp lại doanh nghiệp cuối ngày.</span></label>
-          </li>
-          <li><label><input type="checkbox"> <span>Đối soát theo tuần.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế chuyển khoản theo từng đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh nghiệp chưa có quy trình — cần tư vấn.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Quy trình khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q59. Tài xế được trả thu nhập như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Nhận toàn bộ phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhận mức cố định theo đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhận theo khoảng cách.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhận lương cố định.</span></label></li>
-          <li><label><input type="checkbox"> <span>Kết hợp lương và phí theo đơn.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q60. Doanh nghiệp thu phí/hoa hồng từ cửa hàng như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Không thu trong MVP.</span></label></li>
-          <li><label><input type="checkbox"> <span>Mức cố định theo đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phần trăm giá trị đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phí thành viên theo tháng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Kết hợp nhiều loại phí.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào?</h3>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q62. Những vai trò nào cần sử dụng Web Admin?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chủ doanh nghiệp/Super Admin.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên điều phối tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên chăm sóc khách hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên quản lý cửa hàng/thực đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Kế toán/đối soát.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ cần một loại tài khoản Admin trong MVP.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Vai trò khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q63. Admin cần quản lý những nội dung nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Khách hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cửa hàng và tài khoản cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Danh mục và món ăn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài xế và hồ sơ xác minh.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đơn hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phân công/đổi tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Khu vực hoạt động.</span></label></li>
-          <li><label><input type="checkbox"> <span>Banner/nội dung hiển thị.</span></label></li>
-          <li><label><input type="checkbox"> <span>Thông báo hệ thống.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cấu hình khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q64. Admin được phép can thiệp vào đơn hàng như thế nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Xem toàn bộ lịch sử trạng thái.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chấp nhận/từ chối thay cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ định hoặc đổi tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hủy đơn và ghi lý do.</span></label></li>
-          <li><label><input type="checkbox"> <span>Điều chỉnh phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Điều chỉnh tổng tiền với lịch sử thay đổi.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đánh dấu giao thành công/thất bại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Liên hệ nhanh với khách, cửa hàng và tài xế.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q65. Những thông báo nào là bắt buộc?</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q66. Doanh nghiệp cần những báo cáo nào trong MVP?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Tổng số đơn theo ngày/tháng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đơn hoàn thành, hủy và giao thất bại.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh thu/giá trị đơn hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Doanh số theo cửa hàng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hiệu suất tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tiền COD và công nợ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Món bán chạy.</span></label></li>
-          <li><label><input type="checkbox"> <span>Xuất Excel/CSV.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Báo cáo khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q67. Khi có khiếu nại hoặc tranh chấp, ai xử lý?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Cửa hàng xử lý trực tiếp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Bộ phận chăm sóc khách hàng của doanh nghiệp.</span></label></li>
-          <li><label><input type="checkbox"> <span>Nhân viên vận hành/Admin.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa có quy trình — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q68. Khách, cửa hàng và tài xế liên hệ hỗ trợ bằng kênh nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Gọi hotline.</span></label></li>
-          <li><label><input type="checkbox"> <span>Zalo.</span></label></li>
-          <li><label><input type="checkbox"> <span>Email.</span></label></li>
-          <li><label><input type="checkbox"> <span>Biểu mẫu hỗ trợ trong ứng dụng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chat trực tiếp trong ứng dụng — tính năng tương lai.</span></label>
-          </li>
-          <li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào?</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q70. Yêu cầu về thương hiệu và giao diện</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Đã có logo và bộ nhận diện thương hiệu.</span></label></li>
-          <li><label><input type="checkbox"> <span>Đã có thiết kế giao diện hoàn chỉnh.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần đội dự án thiết kế trải nghiệm và giao diện (UI/UX) từ
-                đầu.</span></label></li>
-          <li><label><input type="checkbox"> <span>Có ứng dụng tham khảo mong muốn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chỉ cần giao diện đơn giản để thử nghiệm MVP.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q71. Ngôn ngữ cần hỗ trợ</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chỉ tiếng Việt.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tiếng Việt và tiếng Anh.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Ngôn ngữ khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q72. Dữ liệu và quyền riêng tư cần lưu ý điều gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Chỉ lưu thông tin cần thiết để vận hành đơn.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần chính sách bảo mật và điều khoản sử dụng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần ghi nhận sự đồng ý khi theo dõi vị trí tài xế.</span></label>
-          </li>
-          <li><label><input type="checkbox"> <span>Chỉ theo dõi vị trí khi tài xế online/đang giao.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần quy định thời gian lưu lịch sử vị trí.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần cho phép người dùng yêu cầu cập nhật/xóa dữ liệu.</span></label>
-          </li>
-          <li><label><input type="checkbox"> <span>Chưa có chính sách — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q73. Khi xảy ra sự cố hệ thống hoặc mất dữ liệu, mức chấp nhận của doanh nghiệp là gì?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Có thể tạm ngưng vài giờ trong giai đoạn MVP.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần hoạt động liên tục trong giờ kinh doanh.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần có người nhận cảnh báo khi hệ thống lỗi.</span></label></li>
-          <li><label><input type="checkbox"> <span>Cần sao lưu dữ liệu hằng ngày.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Cần khôi phục nhanh trong vòng
-                giờ.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..."
-              style="display:none"></li>
-          <li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q74. Doanh nghiệp đã có các tài khoản/dịch vụ nào?</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Apple Developer.</span></label></li>
-          <li><label><input type="checkbox"> <span>Google Play Console.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tên miền.</span></label></li>
-          <li><label><input type="checkbox"> <span>Máy chủ/Cloud.</span></label></li>
-          <li><label><input type="checkbox"> <span>Google Maps hoặc nhà cung cấp bản đồ khác.</span></label></li>
-          <li><label><input type="checkbox"> <span>Dịch vụ SMS OTP.</span></label></li>
-          <li><label><input type="checkbox"> <span>Email theo tên miền.</span></label></li>
-          <li><label><input type="checkbox"> <span>Chưa có; cần hướng dẫn đăng ký.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành?</h3>
-        <hr>
-      </section>
-      <section class='question'>
-        <h3>Q76. Hình thức bàn giao mong muốn</h3>
-        <p class="instruction">Chọn các đáp án phù hợp::</p>
-        <ul class='checklist'>
-          <li><label><input type="checkbox"> <span>Mã nguồn đầy đủ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài liệu hướng dẫn sử dụng.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài liệu cài đặt và vận hành.</span></label></li>
-          <li><label><input type="checkbox"> <span>Tài khoản quản trị và tài khoản dịch vụ.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hướng dẫn/đào tạo cho Admin.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hướng dẫn/đào tạo cho cửa hàng và tài xế.</span></label></li>
-          <li><label><input type="checkbox"> <span>Hỗ trợ đưa ứng dụng lên App Store/Google Play.</span></label></li>
-          <li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text"
-              class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
-        </ul>
-        <hr>
-        <section class='section'>
-          <h2>Phần cuối - Ghi chú thêm</h2>
-          <p><strong>Điều doanh nghiệp lo ngại nhất:</strong> _______________________________________________</p>
-          <input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
-          <p><strong>Yêu cầu bắt buộc chưa được đề cập ở trên:</strong> _______________________________________________
-          </p>
-          <input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
-          <p><strong>Nội dung cần đơn vị phát triển tư vấn thêm:</strong>
-            _______________________________________________</p>
-          <input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
-          <label class="freetext-label">Tài liệu doanh nghiệp có thể cung cấp::</label>
-          <input type="text" class="freetext-input" placeholder="Nhập câu trả lời...">
-          <ul class='checklist'>
-            <li><label><input type="checkbox"> <span>Sơ đồ tổ chức</span></label></li>
-            <li><label><input type="checkbox"> <span>Quy trình vận hành hiện tại</span></label></li>
-            <li><label><input type="checkbox"> <span>Báo cáo doanh thu / số liệu kinh doanh</span></label></li>
-            <li><label><input type="checkbox"> <span>Logo & bộ nhận diện thương hiệu</span></label></li>
-            <li><label><input type="checkbox"> <span>Tài liệu khác:
-                  _______________________________________________________</span></label></li>
-          </ul>
-          <hr>
-          <p><em>Cảm ơn quý khách đã dành thời gian. Chúng tôi sẽ liên hệ trong vòng 2-3 ngày làm việc để xác nhận và
-              lên lịch buổi trao đổi tiếp theo.</em></p>
-        </section>
-  </main>
+<main>
+<h1>Khảo sát yêu cầu — Nền tảng giao đồ ăn Xuân Lộc</h1>
+<blockquote>**Phiên bản gửi khách hàng** - đã lọc bỏ các câu hỏi về ngân sách, timeline và nội bộ.</blockquote>
+<blockquote>**76 câu hỏi** · dự kiến hoàn thành trong 30-45 phút.</blockquote>
+<p>Xin chào quý khách,</p>
+<p>Đây là bản khảo sát yêu cầu phần mềm cho dự án nền tảng giao đồ ăn Xuân Lộc. Mục đích của chúng tôi là hiểu rõ nhu cầu nghiệp vụ, quy trình vận hành hiện tại và mong muốn của quý khách để đề xuất giải pháp phù hợp nhất.</p>
+<p>Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thông tin quý khách cung cấp sẽ được bảo mật theo thỏa thuận hợp tác.</p>
+<hr>
+<section class='section'><h2>Phần A - Thông tin doanh nghiệp</h2>
+<table>
+<thead><tr>
+<th>Câu hỏi</th>
+<th>Loại</th>
+</tr></thead><tbody>
+<tr>
+<td>Tên dự án</td>
+<td>Ô nhập text</td>
+</tr>
+<tr>
+<td>Tên doanh nghiệp</td>
+<td>Ô nhập text</td>
+</tr>
+<tr>
+<td>Người đại diện</td>
+<td>Ô nhập text</td>
+</tr>
+<tr>
+<td>Người phối hợp nghiệp vụ</td>
+<td>Ô nhập text</td>
+</tr>
+<tr>
+<td>Đơn vị tư vấn/phát triển</td>
+<td>Ô nhập text</td>
+</tr>
+<tr>
+<td>Ngày thực hiện khảo sát</td>
+<td>Chọn ngày</td>
+</tr>
+</tbody></table>
+<hr>
+<section class='section'><h2>Phần B - Khảo sát nghiệp vụ & kỹ thuật</h2>
+</section>
+<section class='question'><h3>Q01. Hệ thống dự kiến gồm những kênh sử dụng nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Ứng dụng cho khách đặt món.</span></label></li>
+<li><label><input type="checkbox"> <span>Ứng dụng cho cửa hàng nhận và xử lý đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Ứng dụng cho tài xế nhận và giao đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Website quản trị dành cho nhân viên vận hành.</span></label></li>
+<li><label><input type="checkbox"> <span>Website đặt món cho khách.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q02. Mỗi cửa hàng trong phiên bản đầu tiên chỉ có một địa chỉ hoạt động?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đúng.</span></label></li>
+<li><label><input type="checkbox"> <span>Không, một cửa hàng có thể có nhiều chi nhánh.</span></label></li>
+<li><label><input type="checkbox"> <span>Hiện tại một địa chỉ, nhưng cần chuẩn bị cho nhiều chi nhánh trong tương lai.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q03. Mỗi đơn hàng chỉ được đặt từ một cửa hàng?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đúng.</span></label></li>
+<li><label><input type="checkbox"> <span>Không, khách có thể đặt từ nhiều cửa hàng trong cùng một đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q04. Mỗi tài xế chỉ giao một đơn tại một thời điểm trong MVP?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đúng.</span></label></li>
+<li><label><input type="checkbox"> <span>Không, tài xế có thể nhận nhiều đơn cùng lúc.</span></label></li>
+<li><label><input type="checkbox"> <span>MVP một đơn; tương lai cần hỗ trợ ghép nhiều đơn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q05. Hình thức thanh toán chính của MVP là tiền mặt khi nhận hàng (COD)?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đúng, chỉ COD.</span></label></li>
+<li><label><input type="checkbox"> <span>COD và chuyển khoản trực tiếp.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần thanh toán trực tuyến ngay trong MVP.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q06. Việc chọn tài xế được thực hiện như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Hệ thống tự chọn tài xế phù hợp.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên vận hành chọn tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Hệ thống tự chọn; nhân viên có thể can thiệp khi cần.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng tự chọn tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q07. Khách không được tự hủy sau khi cửa hàng đã chấp nhận đơn?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đúng.</span></label></li>
+<li><label><input type="checkbox"> <span>Vẫn được hủy nhưng cần cửa hàng/Admin phê duyệt.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Được hủy ở các trạng thái khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q08. Thông tin doanh nghiệp và đầu mối dự án</h3>
+<hr>
+</section>
+<section class='question'><h3>Q09. Dự án đang ở giai đoạn nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Ý tưởng ban đầu.</span></label></li>
+<li><label><input type="checkbox"> <span>Đang thử nghiệm thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Đã có cửa hàng và tài xế hoạt động.</span></label></li>
+<li><label><input type="checkbox"> <span>Đã có phần mềm nhưng cần thay thế.</span></label></li>
+<li><label><input type="checkbox"> <span>Đang mở rộng sang khu vực mới.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q10. Ba mục tiêu quan trọng nhất của dự án là gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tăng số lượng đơn hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Giảm thời gian xử lý đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Tự động hóa việc tìm tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Giảm sai sót khi nhận và giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Theo dõi đơn hàng minh bạch hơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Quản lý cửa hàng tập trung.</span></label></li>
+<li><label><input type="checkbox"> <span>Quản lý tiền COD và đối soát.</span></label></li>
+<li><label><input type="checkbox"> <span>Có dữ liệu báo cáo để ra quyết định.</span></label></li>
+<li><label><input type="checkbox"> <span>Xây dựng thương hiệu và kênh bán riêng.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Mục tiêu khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q11. Hiện nay đơn hàng đến từ những kênh nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Điện thoại.</span></label></li>
+<li><label><input type="checkbox"> <span>Zalo.</span></label></li>
+<li><label><input type="checkbox"> <span>Facebook/Messenger.</span></label></li>
+<li><label><input type="checkbox"> <span>Website.</span></label></li>
+<li><label><input type="checkbox"> <span>Ứng dụng hiện có.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên nhập đơn trực tiếp.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa vận hành.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào?</h3>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<hr>
+</section>
+<section class='question'><h3>Q13. Những khó khăn lớn nhất trong quy trình hiện tại là gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Bỏ sót hoặc nhập sai đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng phản hồi chậm.</span></label></li>
+<li><label><input type="checkbox"> <span>Khó tìm tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Không biết tài xế đang ở đâu.</span></label></li>
+<li><label><input type="checkbox"> <span>Khách liên hệ hỏi trạng thái quá nhiều.</span></label></li>
+<li><label><input type="checkbox"> <span>Khó quản lý tiền thu hộ.</span></label></li>
+<li><label><input type="checkbox"> <span>Khó xử lý đơn hủy hoặc giao thất bại.</span></label></li>
+<li><label><input type="checkbox"> <span>Không có báo cáo chính xác.</span></label></li>
+<li><label><input type="checkbox"> <span>Khó mở rộng thêm cửa hàng/khu vực.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khó khăn khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q14. Dự án được xem là thành công khi đạt được kết quả nào?</h3>
+<hr>
+</section>
+<section class='question'><h3>Q15. Khu vực triển khai ban đầu ở đâu?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Một xã/phường hoặc khu vực nhỏ.</span></label></li>
+<li><label><input type="checkbox"> <span>Một huyện/quận.</span></label></li>
+<li><label><input type="checkbox"> <span>Một tỉnh/thành phố.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhiều tỉnh/thành phố.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khu vực cụ thể</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q16. Quy mô dự kiến trong 6 tháng đầu</h3>
+<hr>
+</section>
+<section class='question'><h3>Q17. Hệ thống cần hoạt động trong khung giờ nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox" data-other="1"> <span>Theo giờ mở cửa chung: từ  đến .</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Mỗi cửa hàng có giờ mở cửa riêng.</span></label></li>
+<li><label><input type="checkbox"> <span>Hoạt động 24/7.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Có ngày nghỉ cố định</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q18. Khách được đặt giao trong phạm vi nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chỉ trong khu vực phục vụ cố định.</span></label></li>
+<li><label><input type="checkbox"> <span>Trong khoảng cách tối đa tính từ cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Theo danh sách xã/phường được cấu hình.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên kiểm tra và xác nhận thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q19. Cách triển khai mong muốn</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Thử nghiệm với một số cửa hàng và tài xế trước.</span></label></li>
+<li><label><input type="checkbox"> <span>Mở toàn bộ khu vực ngay khi ra mắt.</span></label></li>
+<li><label><input type="checkbox"> <span>Triển khai theo nhiều giai đoạn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q20. Khách có bắt buộc đăng ký tài khoản trước khi đặt món?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Có.</span></label></li>
+<li><label><input type="checkbox"> <span>Không, được đặt nhanh bằng số điện thoại.</span></label></li>
+<li><label><input type="checkbox"> <span>Được xem món không cần tài khoản; đăng nhập khi xác nhận đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q21. Khách đăng nhập bằng cách nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Số điện thoại và mã xác nhận OTP.</span></label></li>
+<li><label><input type="checkbox"> <span>Số điện thoại và mật khẩu.</span></label></li>
+<li><label><input type="checkbox"> <span>Google.</span></label></li>
+<li><label><input type="checkbox"> <span>Apple.</span></label></li>
+<li><label><input type="checkbox"> <span>Facebook.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q22. Khách cần quản lý địa chỉ giao hàng như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chỉ nhập địa chỉ cho từng đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Lưu được nhiều địa chỉ như Nhà, Công ty.</span></label></li>
+<li><label><input type="checkbox"> <span>Chọn vị trí trên bản đồ và bổ sung mô tả.</span></label></li>
+<li><label><input type="checkbox"> <span>Dùng vị trí hiện tại của điện thoại.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên xác nhận lại địa chỉ qua điện thoại.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q23. Khách tìm cửa hàng và món ăn theo cách nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Danh sách cửa hàng gần nhất.</span></label></li>
+<li><label><input type="checkbox"> <span>Danh mục món ăn.</span></label></li>
+<li><label><input type="checkbox"> <span>Tìm theo tên cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Tìm theo tên món.</span></label></li>
+<li><label><input type="checkbox"> <span>Lọc theo khoảng cách.</span></label></li>
+<li><label><input type="checkbox"> <span>Lọc theo trạng thái đang mở cửa.</span></label></li>
+<li><label><input type="checkbox"> <span>Danh sách cửa hàng nổi bật/được đề xuất.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q24. Khách cần thao tác gì khi chọn món?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chọn số lượng.</span></label></li>
+<li><label><input type="checkbox"> <span>Chọn kích cỡ/phiên bản món.</span></label></li>
+<li><label><input type="checkbox"> <span>Chọn topping hoặc món thêm.</span></label></li>
+<li><label><input type="checkbox"> <span>Ghi chú cho từng món.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem thành phần hoặc mô tả món.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem ảnh món.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần tùy chọn phức tạp.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q25. Thông tin nào cần hiển thị trước khi khách xác nhận đơn?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Danh sách món và số lượng.</span></label></li>
+<li><label><input type="checkbox"> <span>Giá từng món.</span></label></li>
+<li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Tổng tiền cần thanh toán.</span></label></li>
+<li><label><input type="checkbox"> <span>Địa chỉ giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Thời gian giao dự kiến.</span></label></li>
+<li><label><input type="checkbox"> <span>Ghi chú cho cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Ghi chú cho tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Điều kiện hủy đơn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q26. Khách có được đặt món trước theo ngày/giờ không?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Không, chỉ đặt giao ngay.</span></label></li>
+<li><label><input type="checkbox"> <span>Có, chọn thời gian mong muốn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ một số cửa hàng hỗ trợ.</span></label></li>
+<li><label><input type="checkbox"> <span>Tính năng tương lai.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q27. Trong lúc giao, khách cần xem hoặc thực hiện những gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Xem trạng thái đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem thời gian giao dự kiến.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem vị trí tài xế trên bản đồ.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem tên và số điện thoại tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Gọi tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Gọi cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Liên hệ bộ phận hỗ trợ.</span></label></li>
+<li><label><input type="checkbox"> <span>Hủy đơn nếu vẫn còn được phép.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q28. Một cửa hàng cần bao nhiêu người sử dụng hệ thống?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Một tài khoản dùng chung.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhiều tài khoản nhân viên.</span></label></li>
+<li><label><input type="checkbox"> <span>Có chủ cửa hàng và nhân viên với quyền khác nhau.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q29. Cửa hàng cần quản lý trạng thái hoạt động nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Mở cửa/Đóng cửa theo lịch.</span></label></li>
+<li><label><input type="checkbox"> <span>Tạm dừng nhận đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Quá tải — kéo dài thời gian chuẩn bị.</span></label></li>
+<li><label><input type="checkbox"> <span>Nghỉ đột xuất.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần, Admin quản lý toàn bộ.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q30. Khi có đơn mới, cửa hàng cần làm gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Nhận thông báo và âm thanh cảnh báo.</span></label></li>
+<li><label><input type="checkbox"> <span>Xem chi tiết đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chấp nhận đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Từ chối và chọn lý do.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhập thời gian chuẩn bị dự kiến.</span></label></li>
+<li><label><input type="checkbox"> <span>Liên hệ khách khi cần.</span></label></li>
+<li><label><input type="checkbox"> <span>In phiếu bếp/in hóa đơn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q31. Nếu cửa hàng không phản hồi đơn trong thời gian quy định thì xử lý thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Nhắc lại cho cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Thông báo nhân viên vận hành.</span></label></li>
+<li><label><input type="checkbox"> <span>Tự động hủy đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên gọi xác nhận thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q32. Ai chịu trách nhiệm tạo và cập nhật thực đơn?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Cửa hàng tự quản lý.</span></label></li>
+<li><label><input type="checkbox"> <span>Admin quản lý cho cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng cập nhật; Admin phê duyệt.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhập dữ liệu ban đầu bởi đội dự án, sau đó cửa hàng quản lý.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q33. Thực đơn cần hỗ trợ những nội dung nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Danh mục món.</span></label></li>
+<li><label><input type="checkbox"> <span>Tên và mô tả món.</span></label></li>
+<li><label><input type="checkbox"> <span>Ảnh món.</span></label></li>
+<li><label><input type="checkbox"> <span>Giá bán.</span></label></li>
+<li><label><input type="checkbox"> <span>Giá khuyến mãi.</span></label></li>
+<li><label><input type="checkbox"> <span>Kích cỡ/phiên bản món.</span></label></li>
+<li><label><input type="checkbox"> <span>Topping/món thêm.</span></label></li>
+<li><label><input type="checkbox"> <span>Món bán theo khung giờ.</span></label></li>
+<li><label><input type="checkbox"> <span>Món nổi bật.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q34. Cửa hàng xử lý món tạm hết như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Bật/tắt món thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Chọn thời gian món có lại.</span></label></li>
+<li><label><input type="checkbox"> <span>Báo khách và đề xuất đổi món sau khi đã đặt.</span></label></li>
+<li><label><input type="checkbox"> <span>Admin cập nhật thay cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần quản lý tồn món trong MVP.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q35. Cửa hàng có được tự thay đổi giá món?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Có, áp dụng ngay.</span></label></li>
+<li><label><input type="checkbox"> <span>Có, nhưng cần Admin phê duyệt.</span></label></li>
+<li><label><input type="checkbox"> <span>Không, chỉ Admin được thay đổi.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q36. Cửa hàng cần xem những thông tin nào sau bán hàng?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Lịch sử đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Số đơn hoàn thành/hủy.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh thu theo ngày/tháng.</span></label></li>
+<li><label><input type="checkbox"> <span>Số tiền cần đối soát.</span></label></li>
+<li><label><input type="checkbox"> <span>Món bán chạy.</span></label></li>
+<li><label><input type="checkbox"> <span>Đánh giá/phản hồi của khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần báo cáo trong MVP.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q37. Vui lòng xác nhận luồng đơn hàng cơ bản</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đồng ý với luồng trên.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cần điều chỉnh như sau</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q38. Cửa hàng có cần cập nhật riêng trạng thái “đang chuẩn bị” và “đã sẵn sàng”?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Có cả hai trạng thái.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ cần “đã sẵn sàng”.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần; khi chấp nhận được xem là đang chuẩn bị.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q39. Khách được hủy đơn trong trường hợp nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Trước khi cửa hàng chấp nhận.</span></label></li>
+<li><label><input type="checkbox"> <span>Sau khi cửa hàng chấp nhận nhưng chưa chuẩn bị.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khi chưa tìm được tài xế sau  phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Chỉ Admin có quyền hủy sau khi cửa hàng chấp nhận.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Trường hợp khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q40. Cửa hàng được hủy/từ chối đơn trong trường hợp nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Hết món.</span></label></li>
+<li><label><input type="checkbox"> <span>Đóng cửa/quá tải.</span></label></li>
+<li><label><input type="checkbox"> <span>Không giao được đến khu vực của khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Không liên hệ được khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Sau khi đã chấp nhận, cửa hàng không được tự hủy.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Trường hợp khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q41. Nếu một món trong đơn bị hết sau khi khách đã đặt thì xử lý thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Cửa hàng từ chối toàn bộ đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng gọi khách để đổi món.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng đề xuất món thay thế trên hệ thống.</span></label></li>
+<li><label><input type="checkbox"> <span>Xóa món hết và điều chỉnh tổng tiền với sự đồng ý của khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên vận hành xử lý thủ công.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q42. Nếu không tìm được tài xế thì xử lý thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tiếp tục tìm trong phạm vi rộng hơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chuyển cho nhân viên vận hành chọn thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Thông báo khách chờ thêm.</span></label></li>
+<li><label><input type="checkbox"> <span>Cho khách hủy đơn.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Tự động hủy sau  phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q43. Nếu khách không nghe máy hoặc không nhận hàng thì xử lý thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox" data-other="1"> <span>Tài xế thử liên hệ ít nhất  lần trong  phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Tài xế liên hệ bộ phận hỗ trợ.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế trả món về cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Đơn được đánh dấu giao thất bại.</span></label></li>
+<li><label><input type="checkbox"> <span>Khách chịu một khoản phí theo chính sách.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách xử lý khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q44. Cần bằng chứng nào để xác nhận giao hàng thành công?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tài xế bấm “Đã giao”.</span></label></li>
+<li><label><input type="checkbox"> <span>Mã xác nhận từ khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Ảnh giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Chữ ký người nhận.</span></label></li>
+<li><label><input type="checkbox"> <span>Vị trí GPS tại điểm giao.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần bằng chứng bổ sung trong MVP.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q45. Ai tạo tài khoản tài xế?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tài xế tự đăng ký.</span></label></li>
+<li><label><input type="checkbox"> <span>Admin tạo tài khoản.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế đăng ký và Admin phê duyệt.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh nghiệp nhập danh sách tài xế có sẵn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q46. Tài xế cần cung cấp/xác minh thông tin nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Họ tên và số điện thoại.</span></label></li>
+<li><label><input type="checkbox"> <span>Ảnh đại diện.</span></label></li>
+<li><label><input type="checkbox"> <span>CCCD/giấy tờ tùy thân.</span></label></li>
+<li><label><input type="checkbox"> <span>Giấy phép lái xe.</span></label></li>
+<li><label><input type="checkbox"> <span>Thông tin phương tiện và biển số.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài khoản ngân hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Khu vực hoạt động.</span></label></li>
+<li><label><input type="checkbox"> <span>Không cần xác minh giấy tờ trong MVP.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q47. Tài xế cần những trạng thái hoạt động nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Online — sẵn sàng nhận đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Đang xem đề nghị giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Đang thực hiện đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Tạm nghỉ.</span></label></li>
+<li><label><input type="checkbox"> <span>Offline.</span></label></li>
+<li><label><input type="checkbox"> <span>Bị tạm khóa bởi Admin.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q48. Tiêu chí nào quan trọng khi hệ thống chọn tài xế?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Gần cửa hàng nhất.</span></label></li>
+<li><label><input type="checkbox"> <span>Đang online và không có đơn khác.</span></label></li>
+<li><label><input type="checkbox"> <span>Hoạt động trong đúng khu vực.</span></label></li>
+<li><label><input type="checkbox"> <span>Đã chờ lâu nhưng chưa nhận được đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Tỷ lệ nhận/hoàn thành đơn tốt.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên vận hành ưu tiên thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ cần tiêu chí đơn giản cho MVP: gần nhất và đang rảnh.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q49. Đề nghị giao hàng nên được gửi như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Gửi lần lượt cho từng tài xế; hết thời gian mới chuyển người tiếp theo.</span></label></li>
+<li><label><input type="checkbox"> <span>Gửi cho một nhóm tài xế gần nhất; người nhận trước được giao đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên chọn và gửi cho một tài xế cụ thể.</span></label></li>
+<li><label><input type="checkbox"> <span>Kết hợp tự động và thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q50. Tài xế có bao lâu để chấp nhận đề nghị giao hàng?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>10 giây.</span></label></li>
+<li><label><input type="checkbox"> <span>15 giây.</span></label></li>
+<li><label><input type="checkbox"> <span>30 giây.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Thời gian khác:  giây.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q51. Khi tài xế từ chối hoặc không phản hồi thì sao?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tự động tìm tài xế tiếp theo.</span></label></li>
+<li><label><input type="checkbox"> <span>Hỏi lý do từ chối.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Thông báo nhân viên vận hành sau  lần thất bại.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Chuyển hoàn toàn sang xử lý thủ công.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q52. Tài xế có được hủy sau khi đã nhận đơn?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Không.</span></label></li>
+<li><label><input type="checkbox"> <span>Có, phải chọn lý do.</span></label></li>
+<li><label><input type="checkbox"> <span>Có, nhưng cần Admin phê duyệt.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ trong trường hợp khẩn cấp.</span></label></li>
+</ul>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<hr>
+</section>
+<section class='question'><h3>Q53. Khi tài xế đã nhận nhưng không di chuyển hoặc mất kết nối thì xử lý thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Gửi nhắc nhở cho tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Thông báo nhân viên vận hành.</span></label></li>
+<li><label><input type="checkbox"> <span>Cho phép Admin đổi tài xế.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Tự động đổi tài xế sau  phút.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Nhân viên gọi xác nhận trước khi đổi.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q54. Tài xế và khách cần sử dụng bản đồ như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tài xế xem đường đến cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế xem đường đến khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Mở ứng dụng Google Maps/Apple Maps để dẫn đường.</span></label></li>
+<li><label><input type="checkbox"> <span>Dẫn đường ngay trong ứng dụng tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Khách xem vị trí tài xế khi đơn đang giao.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng xem vị trí tài xế đang đến lấy món.</span></label></li>
+<li><label><input type="checkbox"> <span>Admin xem vị trí các tài xế đang hoạt động.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q55. Phí giao hàng được tính theo cách nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Mức phí cố định cho mọi đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Theo khoảng cách.</span></label></li>
+<li><label><input type="checkbox"> <span>Theo khu vực/xã/phường.</span></label></li>
+<li><label><input type="checkbox"> <span>Theo từng cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Admin nhập thủ công.</span></label></li>
+<li><label><input type="checkbox"> <span>Miễn phí giao hàng trong một số trường hợp.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q56. Phí giao hàng được hiển thị và thu như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Cộng vào tổng tiền khách trả tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng trả phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh nghiệp hỗ trợ một phần.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Chia theo quy tắc khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q57. Tài xế sẽ thu những khoản tiền nào từ khách?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tiền món ăn và phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ tiền món ăn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ phí giao hàng.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khoản khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q58. Tiền COD được đối soát theo quy trình nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tài xế ứng trước/nộp tiền món cho cửa hàng khi nhận món, sau đó thu lại từ khách.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế thu tiền và nộp lại doanh nghiệp cuối ngày.</span></label></li>
+<li><label><input type="checkbox"> <span>Đối soát theo tuần.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế chuyển khoản theo từng đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh nghiệp chưa có quy trình — cần tư vấn.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Quy trình khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q59. Tài xế được trả thu nhập như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Nhận toàn bộ phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhận mức cố định theo đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhận theo khoảng cách.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhận lương cố định.</span></label></li>
+<li><label><input type="checkbox"> <span>Kết hợp lương và phí theo đơn.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cách khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q60. Doanh nghiệp thu phí/hoa hồng từ cửa hàng như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Không thu trong MVP.</span></label></li>
+<li><label><input type="checkbox"> <span>Mức cố định theo đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Phần trăm giá trị đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Phí thành viên theo tháng.</span></label></li>
+<li><label><input type="checkbox"> <span>Kết hợp nhiều loại phí.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào?</h3>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<p><strong>Mô tả chi tiết:</strong> _______________________________________________</p>
+<hr>
+</section>
+<section class='question'><h3>Q62. Những vai trò nào cần sử dụng Web Admin?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chủ doanh nghiệp/Super Admin.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên điều phối tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên chăm sóc khách hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên quản lý cửa hàng/thực đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Kế toán/đối soát.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ cần một loại tài khoản Admin trong MVP.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Vai trò khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q63. Admin cần quản lý những nội dung nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Khách hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Cửa hàng và tài khoản cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Danh mục và món ăn.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài xế và hồ sơ xác minh.</span></label></li>
+<li><label><input type="checkbox"> <span>Đơn hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Phân công/đổi tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Khu vực hoạt động.</span></label></li>
+<li><label><input type="checkbox"> <span>Banner/nội dung hiển thị.</span></label></li>
+<li><label><input type="checkbox"> <span>Thông báo hệ thống.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cấu hình khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q64. Admin được phép can thiệp vào đơn hàng như thế nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Xem toàn bộ lịch sử trạng thái.</span></label></li>
+<li><label><input type="checkbox"> <span>Chấp nhận/từ chối thay cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ định hoặc đổi tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Hủy đơn và ghi lý do.</span></label></li>
+<li><label><input type="checkbox"> <span>Điều chỉnh phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Điều chỉnh tổng tiền với lịch sử thay đổi.</span></label></li>
+<li><label><input type="checkbox"> <span>Đánh dấu giao thành công/thất bại.</span></label></li>
+<li><label><input type="checkbox"> <span>Liên hệ nhanh với khách, cửa hàng và tài xế.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q65. Những thông báo nào là bắt buộc?</h3>
+<hr>
+</section>
+<section class='question'><h3>Q66. Doanh nghiệp cần những báo cáo nào trong MVP?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Tổng số đơn theo ngày/tháng.</span></label></li>
+<li><label><input type="checkbox"> <span>Đơn hoàn thành, hủy và giao thất bại.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh thu/giá trị đơn hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Phí giao hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Doanh số theo cửa hàng.</span></label></li>
+<li><label><input type="checkbox"> <span>Hiệu suất tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Tiền COD và công nợ.</span></label></li>
+<li><label><input type="checkbox"> <span>Món bán chạy.</span></label></li>
+<li><label><input type="checkbox"> <span>Xuất Excel/CSV.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Báo cáo khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q67. Khi có khiếu nại hoặc tranh chấp, ai xử lý?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Cửa hàng xử lý trực tiếp.</span></label></li>
+<li><label><input type="checkbox"> <span>Bộ phận chăm sóc khách hàng của doanh nghiệp.</span></label></li>
+<li><label><input type="checkbox"> <span>Nhân viên vận hành/Admin.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa có quy trình — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q68. Khách, cửa hàng và tài xế liên hệ hỗ trợ bằng kênh nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Gọi hotline.</span></label></li>
+<li><label><input type="checkbox"> <span>Zalo.</span></label></li>
+<li><label><input type="checkbox"> <span>Email.</span></label></li>
+<li><label><input type="checkbox"> <span>Biểu mẫu hỗ trợ trong ứng dụng.</span></label></li>
+<li><label><input type="checkbox"> <span>Chat trực tiếp trong ứng dụng — tính năng tương lai.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Kênh khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào?</h3>
+<hr>
+</section>
+<section class='question'><h3>Q70. Yêu cầu về thương hiệu và giao diện</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Đã có logo và bộ nhận diện thương hiệu.</span></label></li>
+<li><label><input type="checkbox"> <span>Đã có thiết kế giao diện hoàn chỉnh.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần đội dự án thiết kế trải nghiệm và giao diện (UI/UX) từ đầu.</span></label></li>
+<li><label><input type="checkbox"> <span>Có ứng dụng tham khảo mong muốn.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ cần giao diện đơn giản để thử nghiệm MVP.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q71. Ngôn ngữ cần hỗ trợ</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chỉ tiếng Việt.</span></label></li>
+<li><label><input type="checkbox"> <span>Tiếng Việt và tiếng Anh.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Ngôn ngữ khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q72. Dữ liệu và quyền riêng tư cần lưu ý điều gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Chỉ lưu thông tin cần thiết để vận hành đơn.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần chính sách bảo mật và điều khoản sử dụng.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần ghi nhận sự đồng ý khi theo dõi vị trí tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Chỉ theo dõi vị trí khi tài xế online/đang giao.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần quy định thời gian lưu lịch sử vị trí.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần cho phép người dùng yêu cầu cập nhật/xóa dữ liệu.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa có chính sách — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q73. Khi xảy ra sự cố hệ thống hoặc mất dữ liệu, mức chấp nhận của doanh nghiệp là gì?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Có thể tạm ngưng vài giờ trong giai đoạn MVP.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần hoạt động liên tục trong giờ kinh doanh.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần có người nhận cảnh báo khi hệ thống lỗi.</span></label></li>
+<li><label><input type="checkbox"> <span>Cần sao lưu dữ liệu hằng ngày.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Cần khôi phục nhanh trong vòng  giờ.</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+<li><label><input type="checkbox"> <span>Chưa xác định — cần tư vấn.</span></label></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q74. Doanh nghiệp đã có các tài khoản/dịch vụ nào?</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Apple Developer.</span></label></li>
+<li><label><input type="checkbox"> <span>Google Play Console.</span></label></li>
+<li><label><input type="checkbox"> <span>Tên miền.</span></label></li>
+<li><label><input type="checkbox"> <span>Máy chủ/Cloud.</span></label></li>
+<li><label><input type="checkbox"> <span>Google Maps hoặc nhà cung cấp bản đồ khác.</span></label></li>
+<li><label><input type="checkbox"> <span>Dịch vụ SMS OTP.</span></label></li>
+<li><label><input type="checkbox"> <span>Email theo tên miền.</span></label></li>
+<li><label><input type="checkbox"> <span>Chưa có; cần hướng dẫn đăng ký.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+</section>
+<section class='question'><h3>Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành?</h3>
+<hr>
+</section>
+<section class='question'><h3>Q76. Hình thức bàn giao mong muốn</h3>
+<p class="instruction">Chọn các đáp án phù hợp::</p>
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Mã nguồn đầy đủ.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài liệu hướng dẫn sử dụng.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài liệu cài đặt và vận hành.</span></label></li>
+<li><label><input type="checkbox"> <span>Tài khoản quản trị và tài khoản dịch vụ.</span></label></li>
+<li><label><input type="checkbox"> <span>Hướng dẫn/đào tạo cho Admin.</span></label></li>
+<li><label><input type="checkbox"> <span>Hướng dẫn/đào tạo cho cửa hàng và tài xế.</span></label></li>
+<li><label><input type="checkbox"> <span>Hỗ trợ đưa ứng dụng lên App Store/Google Play.</span></label></li>
+<li><label><input type="checkbox" data-other="1"> <span>Nội dung khác</span></label><input type="text" class="freetext-input inline" placeholder="Ghi rõ..." style="display:none"></li>
+</ul>
+<hr>
+<section class='section'><h2>Phần cuối - Ghi chú thêm</h2>
+<p><strong>Điều doanh nghiệp lo ngại nhất:</strong> _______________________________________________</p>
+<input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
+<p><strong>Yêu cầu bắt buộc chưa được đề cập ở trên:</strong> _______________________________________________</p>
+<input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
+<p><strong>Nội dung cần đơn vị phát triển tư vấn thêm:</strong> _______________________________________________</p>
+<input type="text" class="freetext-input full" placeholder="Nhập câu trả lời...">
+<label class="freetext-label">Tài liệu doanh nghiệp có thể cung cấp::</label>
+<input type="text" class="freetext-input" placeholder="Nhập câu trả lời...">
+<ul class='checklist'>
+<li><label><input type="checkbox"> <span>Sơ đồ tổ chức</span></label></li>
+<li><label><input type="checkbox"> <span>Quy trình vận hành hiện tại</span></label></li>
+<li><label><input type="checkbox"> <span>Báo cáo doanh thu / số liệu kinh doanh</span></label></li>
+<li><label><input type="checkbox"> <span>Logo & bộ nhận diện thương hiệu</span></label></li>
+<li><label><input type="checkbox"> <span>Tài liệu khác: _______________________________________________________</span></label></li>
+</ul>
+<hr>
+<p><em>Cảm ơn quý khách đã dành thời gian. Chúng tôi sẽ liên hệ trong vòng 2-3 ngày làm việc để xác nhận và lên lịch buổi trao đổi tiếp theo.</em></p>
+</section>
+</main>
 
-  <div class="actions">
-    <button class="btn" id="submitBtn" onclick="submitResults()">📤 Gửi kết quả</button>
-    <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
-  </div>
+<div class="actions">
+  <button class="btn" id="submitBtn" onclick="submitResults()">📤 Gửi kết quả</button>
+  <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
+</div>
 
-  <div class="toast" id="toast">✓ Đã gửi thành công!</div>
-  <div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
+<div class="toast" id="toast">✓ Đã gửi thành công!</div>
+<div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
 
-  <script>
-    const GITHUB_OWNER = 'dacvn777sg';
-    const GITHUB_REPO = 'XuanLoc_food_delivery';
+<script>
+(function() {
+'use strict';
 
-    // Web3Forms Access Key — lấy từ https://web3forms.com sau khi verify email dacvn777sg@gmail.com
-    // Key này được phép lộ public vì chỉ có quyền gửi form tới email của bạn.
-    const WEB3FORMS_KEY = '3f62cf7f-f5e8-44fe-9d5f-4afa6ec28670';
+// Expose functions to global scope for onclick handlers
+window.GITHUB_OWNER = 'dacvn777sg';
+window.GITHUB_REPO = 'XuanLoc_food_delivery';
 
-    function collectAnswers() {
-      const sections = document.querySelectorAll('section');
-      const lines = [];
-      lines.push('# Kết quả khảo sát SRQ - Xuân Lộc Food Delivery');
-      lines.push('Ngày: ' + new Date().toLocaleString('vi-VN'));
-      lines.push('---');
+// Web3Forms Access Key — lấy từ https://web3forms.com sau khi verify email dacvn777sg@gmail.com
+// Key này được phép lộ public vì chỉ có quyền gửi form tới email của bạn.
+window.WEB3FORMS_KEY = 'PASTE_YOUR_WEB3FORMS_KEY_HERE';
 
-      sections.forEach(sec => {
-        const h2 = sec.querySelector('h2');
-        const h3List = sec.querySelectorAll('section.question h3');
+function collectAnswers() {
+  const sections = document.querySelectorAll('section');
+  const lines = [];
+  lines.push('# Kết quả khảo sát SRQ - Xuân Lộc Food Delivery');
+  lines.push('Ngày: ' + new Date().toLocaleString('vi-VN'));
+  lines.push('---');
 
-        if (h2) {
-          lines.push('');
-          lines.push('## ' + h2.textContent);
+  sections.forEach(sec => {
+    const h2 = sec.querySelector('h2');
+    const h3List = sec.querySelectorAll('section.question h3');
+
+    if (h2) {
+      lines.push('');
+      lines.push('## ' + h2.textContent);
+    }
+
+    h3List.forEach(h3 => {
+      lines.push('');
+      lines.push('### ' + h3.textContent);
+
+      const checkboxes = h3.parentElement.querySelectorAll('ul.checklist li');
+      checkboxes.forEach(li => {
+        const cb = li.querySelector('input[type="checkbox"]');
+        const span = li.querySelector('span');
+        if (cb && cb.checked && span) {
+          const inline = li.querySelector('input.inline');
+          let val = span.textContent;
+          if (inline && inline.value && inline.classList.contains('show')) {
+            val += ': ' + inline.value;
+          }
+          lines.push('- [x] ' + val);
         }
-
-        h3List.forEach(h3 => {
-          lines.push('');
-          lines.push('### ' + h3.textContent);
-
-          const checkboxes = h3.parentElement.querySelectorAll('ul.checklist li');
-          checkboxes.forEach(li => {
-            const cb = li.querySelector('input[type="checkbox"]');
-            const span = li.querySelector('span');
-            if (cb && cb.checked && span) {
-              const inline = li.querySelector('input.inline');
-              let val = span.textContent;
-              if (inline && inline.value && inline.classList.contains('show')) {
-                val += ': ' + inline.value;
-              }
-              lines.push('- [x] ' + val);
-            }
-          });
-
-          const freetexts = h3.parentElement.querySelectorAll('.freetext-input');
-          freetexts.forEach(ft => {
-            if (ft.value) {
-              const label = ft.previousElementSibling;
-              const labelText = (label && label.classList.contains('freetext-label'))
-                ? label.textContent.replace(/:$/, '')
-                : 'Trả lời';
-              lines.push(labelText + ': ' + ft.value);
-            }
-          });
-        });
       });
 
-      return lines.join('
+      const freetexts = h3.parentElement.querySelectorAll('.freetext-input');
+      freetexts.forEach(ft => {
+        if (ft.value) {
+          const label = ft.previousElementSibling;
+          const labelText = (label && label.classList.contains('freetext-label'))
+            ? label.textContent.replace(/:$/, '')
+            : 'Trả lời';
+          lines.push(labelText + ': ' + ft.value);
+        }
+      });
+    });
+  });
+
+  return lines.join('
 ');
 }
+window.collectAnswers = collectAnswers;
 
-    async function submitResults() {
-      const btn = document.getElementById('submitBtn');
-      const answers = collectAnswers();
+async function submitResults() {
+  const btn = document.getElementById('submitBtn');
+  const answers = collectAnswers();
 
-      if (!answers.trim() || answers.length < 50) {
-        showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi gửi.');
-        return;
-      }
+  if (!answers.trim() || answers.length < 50) {
+    showToast('toastError', 'Vui lòng tick ít nhất 1 đáp án trước khi gửi.');
+    return;
+  }
 
-      if (!WEB3FORMS_KEY || WEB3FORMS_KEY.startsWith('PASTE_')) {
-        showToast('toastError', '⚠ Form chưa cấu hình Web3Forms key. Vui lòng liên hệ đội ngũ phát triển.');
-        return;
-      }
+  if (!window.WEB3FORMS_KEY || window.WEB3FORMS_KEY.startsWith('PASTE_')) {
+    showToast('toastError', '⚠ Form chưa cấu hình Web3Forms key. Vui lòng liên hệ đội ngũ phát triển.');
+    return;
+  }
 
-      btn.disabled = true;
-      btn.textContent = '⏳ Đang gửi...';
+  btn.disabled = true;
+  btn.textContent = '⏳ Đang gửi...';
 
-      try {
-        const now = new Date().toLocaleString('vi-VN');
-        const userAgent = navigator.userAgent;
-        const mdContent = answers + '
+  try {
+    const now = new Date().toLocaleString('vi-VN');
+    const userAgent = navigator.userAgent;
+    const mdContent = answers + '
 
-        ---
+---
 
-          _Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_';
+_Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_';
 
-        // Tạo file MD và attach — Web3Forms hỗ trợ attachments qua FormData
-        const blob = new Blob([mdContent], { type: 'text/markdown' });
-        const fileName = `SRQ-submission-${now.replace(/[/:\s]/g, '-')}.md`;
+    const blob = new Blob([mdContent], { type: 'text/markdown' });
+    const fileName = `SRQ-submission-${now.replace(/[/:\s]/g, '-')}.md`;
 
-        const formData = new FormData();
-        formData.append('access_key', WEB3FORMS_KEY);
-        formData.append('subject', `📥 SRQ Submission — ${now}`);
-        formData.append('from_name', 'XuanLoc SRQ Form');
-        formData.append('replyto', 'noreply@xuanloc.local');
-        formData.append('message', mdContent);
-        formData.append('attachment', blob, fileName);
-        formData.append('botcheck', ''); // honeypot — phải trống
+    const formData = new FormData();
+    formData.append('access_key', window.WEB3FORMS_KEY);
+    formData.append('subject', `📥 SRQ Submission — ${now}`);
+    formData.append('from_name', 'XuanLoc SRQ Form');
+    formData.append('replyto', 'noreply@xuanloc.local');
+    formData.append('message', mdContent);
+    formData.append('attachment', blob, fileName);
+    formData.append('botcheck', '');
 
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
 
-        const data = await res.json();
+    const data = await res.json();
 
-        if (data.success) {
-          showToast('toast', '✓ Đã gửi thành công! Cảm ơn quý khách.');
-          btn.textContent = '✓ Đã gửi';
-          setTimeout(() => {
-            btn.disabled = false;
-            btn.textContent = '📤 Gửi kết quả';
-          }, 5000);
-        } else {
-          throw new Error(data.message || 'Gửi thất bại');
-        }
-      } catch (err) {
-        console.error('Submit failed:', err);
-        showToast('toastError', 'Gửi thất bại: ' + (err.message || 'lỗi không xác định'));
+    if (data.success) {
+      showToast('toast', '✓ Đã gửi thành công! Cảm ơn quý khách.');
+      btn.textContent = '✓ Đã gửi';
+      setTimeout(() => {
         btn.disabled = false;
         btn.textContent = '📤 Gửi kết quả';
-      }
+      }, 5000);
+    } else {
+      throw new Error(data.message || 'Gửi thất bại');
     }
+  } catch (err) {
+    console.error('Submit failed:', err);
+    showToast('toastError', 'Gửi thất bại: ' + (err.message || 'lỗi không xác định'));
+    btn.disabled = false;
+    btn.textContent = '📤 Gửi kết quả';
+  }
+}
+window.submitResults = submitResults;
 
-    function showToast(id, msg) {
-      const t = document.getElementById(id);
-      if (msg) t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 4000);
+function showToast(id, msg) {
+  const t = document.getElementById(id);
+  if (msg) t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+window.showToast = showToast;
+
+// Show inline freetext when "other" checkbox is checked
+document.addEventListener('change', e => {
+  if (e.target.matches('input[type="checkbox"][data-other]')) {
+    const inline = e.target.closest('li').querySelector('input.inline');
+    if (inline) {
+      inline.classList.toggle('show', e.target.checked);
+      if (e.target.checked) inline.focus();
     }
+  }
+});
 
-    // Show inline freetext when "other" checkbox is checked
-    document.addEventListener('change', e => {
-      if (e.target.matches('input[type="checkbox"][data-other]')) {
-        const inline = e.target.closest('li').querySelector('input.inline');
-        if (inline) {
-          inline.classList.toggle('show', e.target.checked);
-          if (e.target.checked) inline.focus();
-        }
-      }
-    });
-  </script>
+// Catch all uncaught errors and show as toast for debugging
+window.addEventListener('error', (e) => {
+  console.error('Global error:', e.error || e.message);
+  const t = document.getElementById('toastError');
+  if (t) {
+    t.textContent = 'Lỗi: ' + (e.message || 'không xác định');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 6000);
+  }
+});
+
+console.log('SRQ form initialized. submitResults available:', typeof window.submitResults);
+
+})();
+</script>
 
 </body>
-
 </html>
