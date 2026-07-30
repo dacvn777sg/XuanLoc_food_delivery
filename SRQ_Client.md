@@ -197,6 +197,20 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 ### Q16. Quy mô dự kiến trong 6 tháng đầu
 
+Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
+
+**Số cửa hàng:** _______________________________________________
+
+**Số tài xế đã đăng ký:** _______________________________________________
+
+**Số tài xế online cùng lúc:** _______________________________________________
+
+**Số khách hàng đăng ký:** _______________________________________________
+
+**Đơn trung bình/ngày:** _______________________________________________
+
+**Đơn cao điểm/giờ:** _______________________________________________
+
 ---
 
 ### Q17. Hệ thống cần hoạt động trong khung giờ nào?
@@ -812,6 +826,68 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 ### Q65. Những thông báo nào là bắt buộc?
 
+Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông báo:
+
+**Có đơn mới:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Cửa hàng chấp nhận / từ chối:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Có đề nghị giao hàng:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Tài xế nhận đơn:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Tài xế đến cửa hàng:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Tài xế đã lấy món:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Đang giao:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Giao thành công / thất bại:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Không tìm được tài xế:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
+**Đơn bị hủy:** *(chọn nhóm nhận)*
+- [ ] Khách hàng
+- [ ] Cửa hàng
+- [ ] Tài xế
+- [ ] Admin
+
 ---
 
 ### Q66. Doanh nghiệp cần những báo cáo nào trong MVP?
@@ -856,6 +932,38 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 ---
 
 ### Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào?
+
+Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử dụng:
+
+**Khách hàng:** *(chọn thiết bị)*
+- [ ] Smartphone Android
+- [ ] Smartphone iOS
+- [ ] Máy tính bảng
+- [ ] Laptop / máy tính để bàn
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Cửa hàng:** *(chọn thiết bị)*
+- [ ] Smartphone Android
+- [ ] Smartphone iOS
+- [ ] Máy tính bảng
+- [ ] Laptop / máy tính để bàn
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Tài xế:** *(chọn thiết bị)*
+- [ ] Smartphone Android
+- [ ] Smartphone iOS
+- [ ] Máy tính bảng
+- [ ] Laptop / máy tính để bàn
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Admin / Nhân viên vận hành:** *(chọn thiết bị)*
+- [ ] Smartphone Android
+- [ ] Smartphone iOS
+- [ ] Máy tính bảng
+- [ ] Laptop / máy tính để bàn
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Thiết bị phổ biến đang sử dụng:** _______________________________________________
 
 ---
 
@@ -925,6 +1033,22 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 ---
 
 ### Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành?
+
+Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
+
+**App Khách hàng:** _______________________________________________
+
+**App Cửa hàng:** _______________________________________________
+
+**App Tài xế:** _______________________________________________
+
+**Web Admin:** _______________________________________________
+
+**Quy trình vận hành:** _______________________________________________
+
+**Báo cáo / đối soát:** _______________________________________________
+
+**Nghiệm thu cuối cùng:** _______________________________________________
 
 ---
 
