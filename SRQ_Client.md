@@ -823,6 +823,8 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
 ### Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào?
 
+> **Nếu MVP chỉ dùng COD**, vui lòng mô tả ai chịu chi phí món ăn, phí giao và khoản bồi hoàn nếu có.
+
 **Mô tả chi tiết:** _______________________________________________
 
 **Mô tả chi tiết:** _______________________________________________
