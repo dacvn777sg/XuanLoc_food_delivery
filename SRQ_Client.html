@@ -1103,12 +1103,16 @@
   <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
 </div>
 
-<div class="toast" id="toast">✓ Đang mở GitHub để submit...</div>
-<div class="toast error" id="toastError">✗ Không thể mở GitHub. Vui lòng thử lại.</div>
+<div class="toast" id="toast">✓ Đã gửi thành công!</div>
+<div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
 
 <script>
 const GITHUB_OWNER = 'dacvn777sg';
 const GITHUB_REPO = 'XuanLoc_food_delivery';
+
+// Web3Forms Access Key — lấy từ https://web3forms.com sau khi verify email dacvn777sg@gmail.com
+// Key này được phép lộ public vì chỉ có quyền gửi form tới email của bạn.
+const WEB3FORMS_KEY = 'PASTE_YOUR_WEB3FORMS_KEY_HERE';
 
 function collectAnswers() {
   const sections = document.querySelectorAll('section');
@@ -1161,7 +1165,7 @@ function collectAnswers() {
 ');
 }
 
-function submitResults() {
+async function submitResults() {
   const btn = document.getElementById('submitBtn');
   const answers = collectAnswers();
 
@@ -1170,49 +1174,56 @@ function submitResults() {
     return;
   }
 
+  if (!WEB3FORMS_KEY || WEB3FORMS_KEY.startsWith('PASTE_')) {
+    showToast('toastError', '⚠ Form chưa cấu hình Web3Forms key. Vui lòng liên hệ đội ngũ phát triển.');
+    return;
+  }
+
   btn.disabled = true;
-  btn.textContent = '⏳ Đang chuẩn bị...';
+  btn.textContent = '⏳ Đang gửi...';
 
   try {
     const now = new Date().toLocaleString('vi-VN');
-    const title = `📥 SRQ Submission — ${now}`;
     const userAgent = navigator.userAgent;
-    const body = answers + '
+    const mdContent = answers + '
 
 ---
 
-_Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_
+_Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_';
 
-_Vui lòng paste nội dung đã copy vào ô Body bên dưới, rồi click **"Submit new issue"** để gửi._';
+    // Tạo file MD và attach — Web3Forms hỗ trợ attachments qua FormData
+    const blob = new Blob([mdContent], { type: 'text/markdown' });
+    const fileName = `SRQ-submission-${now.replace(/[/:\s]/g, '-')}.md`;
 
-    const labels = 'srq-submission,client-intake';
-    const MAX_URL_LEN = 8000;
-    const baseUrl = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new`;
+    const formData = new FormData();
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', `📥 SRQ Submission — ${now}`);
+    formData.append('from_name', 'XuanLoc SRQ Form');
+    formData.append('replyto', 'noreply@xuanloc.local');
+    formData.append('message', mdContent);
+    formData.append('attachment', blob, fileName);
+    formData.append('botcheck', ''); // honeypot — phải trống
 
-    let url;
-    if (title.length + body.length + 200 < MAX_URL_LEN) {
-      // Body đủ ngắn → pre-fill trực tiếp vào URL
-      url = `${baseUrl}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=${encodeURIComponent(labels)}`;
-      showToast('toast', 'Đang mở GitHub — click "Submit new issue" để hoàn tất.');
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      showToast('toast', '✓ Đã gửi thành công! Cảm ơn quý khách.');
+      btn.textContent = '✓ Đã gửi';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = '📤 Gửi kết quả';
+      }, 5000);
     } else {
-      // Body quá dài → copy vào clipboard, chỉ pre-fill title
-      url = `${baseUrl}?title=${encodeURIComponent(title)}&labels=${encodeURIComponent(labels)}`;
-      navigator.clipboard.writeText(body).then(() => {
-        showToast('toast', 'Nội dung đã copy — paste vào ô Body trên GitHub.');
-      }).catch(() => {
-        showToast('toastError', 'Không thể copy. Hãy copy thủ công từ trang.');
-      });
+      throw new Error(data.message || 'Gửi thất bại');
     }
-
-    window.open(url, '_blank');
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.textContent = '📤 Gửi kết quả';
-    }, 3000);
   } catch (err) {
     console.error('Submit failed:', err);
-    showToast('toastError', 'Có lỗi. Vui lòng thử lại.');
+    showToast('toastError', 'Gửi thất bại: ' + (err.message || 'lỗi không xác định'));
     btn.disabled = false;
     btn.textContent = '📤 Gửi kết quả';
   }
