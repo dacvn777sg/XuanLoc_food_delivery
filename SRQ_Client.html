@@ -1103,13 +1103,12 @@
   <button class="btn secondary" onclick="window.print()">🖨️ In / PDF</button>
 </div>
 
-<div class="toast" id="toast">✓ Đã gửi kết quả!</div>
-<div class="toast error" id="toastError">✗ Gửi thất bại. Vui lòng thử lại.</div>
+<div class="toast" id="toast">✓ Đang mở GitHub để submit...</div>
+<div class="toast error" id="toastError">✗ Không thể mở GitHub. Vui lòng thử lại.</div>
 
 <script>
 const GITHUB_OWNER = 'dacvn777sg';
 const GITHUB_REPO = 'XuanLoc_food_delivery';
-const GITHUB_TOKEN = 'PASTE_YOUR_GITHUB_PAT_HERE'; // ← thay bằng token mới của bạn
 
 function collectAnswers() {
   const sections = document.querySelectorAll('section');
@@ -1162,7 +1161,7 @@ function collectAnswers() {
 ');
 }
 
-async function submitResults() {
+function submitResults() {
   const btn = document.getElementById('submitBtn');
   const answers = collectAnswers();
 
@@ -1172,45 +1171,48 @@ async function submitResults() {
   }
 
   btn.disabled = true;
-  btn.textContent = '⏳ Đang gửi...';
+  btn.textContent = '⏳ Đang chuẩn bị...';
 
   try {
-    if (!GITHUB_TOKEN) {
-      showToast('toastError', '⚠ Form chưa được cấu hình. Vui lòng liên hệ đội ngũ phát triển.');
-      throw new Error('No GITHUB_TOKEN configured in HTML');
-    }
-
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/vnd.github+json',
-        'Authorization': `Bearer ${GITHUB_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: `📥 SRQ Submission — ${new Date().toLocaleString('vi-VN')}`,
-        body: answers + '
+    const now = new Date().toLocaleString('vi-VN');
+    const title = `📥 SRQ Submission — ${now}`;
+    const userAgent = navigator.userAgent;
+    const body = answers + '
 
 ---
 
-_Submitted via SRQ_Client.html · User agent: `' + navigator.userAgent + '`_',
-        labels: ['srq-submission', 'client-intake'],
-      })
-    });
+_Submitted via SRQ_Client.html · User agent: `' + userAgent + '`_
 
-    if (res.ok || res.status === 204) {
-      showToast('toast', 'Đã gửi kết quả! Cảm ơn quý khách.');
-      btn.textContent = '✓ Đã gửi';
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = '📤 Gửi kết quả';
-      }, 5000);
+_Vui lòng paste nội dung đã copy vào ô Body bên dưới, rồi click **"Submit new issue"** để gửi._';
+
+    const labels = 'srq-submission,client-intake';
+    const MAX_URL_LEN = 8000;
+    const baseUrl = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new`;
+
+    let url;
+    if (title.length + body.length + 200 < MAX_URL_LEN) {
+      // Body đủ ngắn → pre-fill trực tiếp vào URL
+      url = `${baseUrl}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=${encodeURIComponent(labels)}`;
+      showToast('toast', 'Đang mở GitHub — click "Submit new issue" để hoàn tất.');
     } else {
-      throw new Error('HTTP ' + res.status);
+      // Body quá dài → copy vào clipboard, chỉ pre-fill title
+      url = `${baseUrl}?title=${encodeURIComponent(title)}&labels=${encodeURIComponent(labels)}`;
+      navigator.clipboard.writeText(body).then(() => {
+        showToast('toast', 'Nội dung đã copy — paste vào ô Body trên GitHub.');
+      }).catch(() => {
+        showToast('toastError', 'Không thể copy. Hãy copy thủ công từ trang.');
+      });
     }
+
+    window.open(url, '_blank');
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = '📤 Gửi kết quả';
+    }, 3000);
   } catch (err) {
     console.error('Submit failed:', err);
-    showToast('toastError', 'Gửi thất bại. Vui lòng thử lại hoặc liên hệ trực tiếp.');
+    showToast('toastError', 'Có lỗi. Vui lòng thử lại.');
     btn.disabled = false;
     btn.textContent = '📤 Gửi kết quả';
   }
