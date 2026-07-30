@@ -1394,6 +1394,57 @@ document.addEventListener('change', e => {
   }
 });
 
+// Attach event listeners via JS (more reliable than inline onclick on mobile)
+document.addEventListener('DOMContentLoaded', function() {
+  const btnPrint = document.getElementById('btnPrint');
+  const btnDownload = document.getElementById('btnDownload');
+  if (btnPrint) {
+    btnPrint.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Print button clicked');
+      try {
+        window.print();
+      } catch (err) {
+        console.error('Print failed:', err);
+        showToast('toastError', '⚠️ Trình duyệt không hỗ trợ in. Hãy dùng nút "Tải file Markdown".');
+      }
+    });
+  }
+  if (btnDownload) {
+    btnDownload.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Download button clicked');
+      downloadMarkdown();
+    });
+  }
+});
+
+// Fallback: also try without DOMContentLoaded (in case it already fired)
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  setTimeout(function() {
+    const btnPrint = document.getElementById('btnPrint');
+    const btnDownload = document.getElementById('btnDownload');
+    if (btnPrint && !btnPrint.dataset.bound) {
+      btnPrint.dataset.bound = '1';
+      btnPrint.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Print button clicked (fallback)');
+        window.print();
+      });
+    }
+    if (btnDownload && !btnDownload.dataset.bound) {
+      btnDownload.dataset.bound = '1';
+      btnDownload.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Download button clicked (fallback)');
+        downloadMarkdown();
+      });
+    }
+  }, 100);
+}
+
+console.log('SRQ form initialized');
+
 })();
 </script>
 
