@@ -500,6 +500,17 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
 ### Q37. Vui lòng xác nhận luồng đơn hàng cơ bản
 
+```
+Khách đặt món
+→ Cửa hàng chấp nhận
+→ Hệ thống/nhân viên tìm tài xế
+→ Tài xế nhận đơn
+→ Tài xế đến cửa hàng
+→ Cửa hàng bàn giao món
+→ Tài xế giao cho khách và thu tiền
+→ Đơn hoàn thành
+```
+
 **Chọn các đáp án phù hợp:**
 
 - [ ] Đồng ý với luồng trên.
