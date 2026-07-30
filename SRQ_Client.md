@@ -37,6 +37,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Website đặt món cho khách.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q02. Mỗi cửa hàng trong phiên bản đầu tiên chỉ có một địa chỉ hoạt động?
@@ -47,6 +48,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Không, một cửa hàng có thể có nhiều chi nhánh.
 - [ ] Hiện tại một địa chỉ, nhưng cần chuẩn bị cho nhiều chi nhánh trong tương lai.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q03. Mỗi đơn hàng chỉ được đặt từ một cửa hàng?
@@ -57,6 +59,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Không, khách có thể đặt từ nhiều cửa hàng trong cùng một đơn.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q04. Mỗi tài xế chỉ giao một đơn tại một thời điểm trong MVP?
@@ -67,6 +70,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Không, tài xế có thể nhận nhiều đơn cùng lúc.
 - [ ] MVP một đơn; tương lai cần hỗ trợ ghép nhiều đơn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q05. Hình thức thanh toán chính của MVP là tiền mặt khi nhận hàng (COD)?
@@ -78,6 +82,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Cần thanh toán trực tuyến ngay trong MVP.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q06. Việc chọn tài xế được thực hiện như thế nào?
@@ -90,6 +95,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Cửa hàng tự chọn tài xế.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q07. Khách không được tự hủy sau khi cửa hàng đã chấp nhận đơn?
@@ -101,6 +107,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Được hủy ở các trạng thái khác *(có ô nhập bổ sung)*
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q09. Dự án đang ở giai đoạn nào?
@@ -114,6 +121,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Đang mở rộng sang khu vực mới.
 - [ ] Khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q10. Ba mục tiêu quan trọng nhất của dự án là gì?
@@ -131,6 +139,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Xây dựng thương hiệu và kênh bán riêng.
 - [ ] Mục tiêu khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q11. Hiện nay đơn hàng đến từ những kênh nào?
@@ -146,6 +155,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Chưa vận hành.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào?
@@ -156,6 +166,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 **Mô tả chi tiết:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q13. Những khó khăn lớn nhất trong quy trình hiện tại là gì?
@@ -173,6 +184,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Khó mở rộng thêm cửa hàng/khu vực.
 - [ ] Khó khăn khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q15. Khu vực triển khai ban đầu ở đâu?
@@ -185,6 +197,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 - [ ] Nhiều tỉnh/thành phố.
 - [ ] Khu vực cụ thể *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q16. Quy mô dự kiến trong 6 tháng đầu
@@ -203,6 +216,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
 **Đơn cao điểm/giờ:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q17. Hệ thống cần hoạt động trong khung giờ nào?
@@ -214,6 +228,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Hoạt động 24/7.
 - [ ] Có ngày nghỉ cố định *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q18. Khách được đặt giao trong phạm vi nào?
@@ -226,6 +241,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Nhân viên kiểm tra và xác nhận thủ công.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q19. Cách triển khai mong muốn
@@ -237,6 +253,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Triển khai theo nhiều giai đoạn.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q20. Khách có bắt buộc đăng ký tài khoản trước khi đặt món?
@@ -248,6 +265,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Được xem món không cần tài khoản; đăng nhập khi xác nhận đơn.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q21. Khách đăng nhập bằng cách nào?
@@ -261,6 +279,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Facebook.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q22. Khách cần quản lý địa chỉ giao hàng như thế nào?
@@ -273,6 +292,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Dùng vị trí hiện tại của điện thoại.
 - [ ] Nhân viên xác nhận lại địa chỉ qua điện thoại.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q23. Khách tìm cửa hàng và món ăn theo cách nào?
@@ -288,6 +308,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Danh sách cửa hàng nổi bật/được đề xuất.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q24. Khách cần thao tác gì khi chọn món?
@@ -302,6 +323,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Xem ảnh món.
 - [ ] Không cần tùy chọn phức tạp.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q25. Thông tin nào cần hiển thị trước khi khách xác nhận đơn?
@@ -318,6 +340,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Ghi chú cho tài xế.
 - [ ] Điều kiện hủy đơn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q26. Khách có được đặt món trước theo ngày/giờ không?
@@ -329,6 +352,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Chỉ một số cửa hàng hỗ trợ.
 - [ ] Tính năng tương lai.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q27. Trong lúc giao, khách cần xem hoặc thực hiện những gì?
@@ -345,6 +369,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Hủy đơn nếu vẫn còn được phép.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q28. Một cửa hàng cần bao nhiêu người sử dụng hệ thống?
@@ -356,6 +381,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Có chủ cửa hàng và nhân viên với quyền khác nhau.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q29. Cửa hàng cần quản lý trạng thái hoạt động nào?
@@ -368,6 +394,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Nghỉ đột xuất.
 - [ ] Không cần, Admin quản lý toàn bộ.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q30. Khi có đơn mới, cửa hàng cần làm gì?
@@ -382,6 +409,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Liên hệ khách khi cần.
 - [ ] In phiếu bếp/in hóa đơn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q31. Nếu cửa hàng không phản hồi đơn trong thời gian quy định thì xử lý thế nào?
@@ -394,6 +422,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Nhân viên gọi xác nhận thủ công.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q32. Ai chịu trách nhiệm tạo và cập nhật thực đơn?
@@ -406,6 +435,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Nhập dữ liệu ban đầu bởi đội dự án, sau đó cửa hàng quản lý.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q33. Thực đơn cần hỗ trợ những nội dung nào?
@@ -423,6 +453,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Món nổi bật.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q34. Cửa hàng xử lý món tạm hết như thế nào?
@@ -435,6 +466,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Admin cập nhật thay cửa hàng.
 - [ ] Không cần quản lý tồn món trong MVP.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q35. Cửa hàng có được tự thay đổi giá món?
@@ -446,6 +478,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Không, chỉ Admin được thay đổi.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q36. Cửa hàng cần xem những thông tin nào sau bán hàng?
@@ -460,6 +493,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Đánh giá/phản hồi của khách.
 - [ ] Không cần báo cáo trong MVP.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q37. Vui lòng xác nhận luồng đơn hàng cơ bản
@@ -469,6 +503,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Đồng ý với luồng trên.
 - [ ] Cần điều chỉnh như sau *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q38. Cửa hàng có cần cập nhật riêng trạng thái “đang chuẩn bị” và “đã sẵn sàng”?
@@ -480,6 +515,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Không cần; khi chấp nhận được xem là đang chuẩn bị.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q39. Khách được hủy đơn trong trường hợp nào?
@@ -492,6 +528,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Chỉ Admin có quyền hủy sau khi cửa hàng chấp nhận.
 - [ ] Trường hợp khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q40. Cửa hàng được hủy/từ chối đơn trong trường hợp nào?
@@ -505,6 +542,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Sau khi đã chấp nhận, cửa hàng không được tự hủy.
 - [ ] Trường hợp khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q41. Nếu một món trong đơn bị hết sau khi khách đã đặt thì xử lý thế nào?
@@ -517,6 +555,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Xóa món hết và điều chỉnh tổng tiền với sự đồng ý của khách.
 - [ ] Nhân viên vận hành xử lý thủ công.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q42. Nếu không tìm được tài xế thì xử lý thế nào?
@@ -530,6 +569,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Tự động hủy sau  phút. *(có ô nhập bổ sung)*
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q43. Nếu khách không nghe máy hoặc không nhận hàng thì xử lý thế nào?
@@ -543,6 +583,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Khách chịu một khoản phí theo chính sách.
 - [ ] Cách xử lý khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q44. Cần bằng chứng nào để xác nhận giao hàng thành công?
@@ -556,6 +597,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Vị trí GPS tại điểm giao.
 - [ ] Không cần bằng chứng bổ sung trong MVP.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q45. Ai tạo tài khoản tài xế?
@@ -567,6 +609,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Tài xế đăng ký và Admin phê duyệt.
 - [ ] Doanh nghiệp nhập danh sách tài xế có sẵn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q46. Tài xế cần cung cấp/xác minh thông tin nào?
@@ -582,6 +625,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Khu vực hoạt động.
 - [ ] Không cần xác minh giấy tờ trong MVP.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q47. Tài xế cần những trạng thái hoạt động nào?
@@ -595,6 +639,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Offline.
 - [ ] Bị tạm khóa bởi Admin.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q48. Tiêu chí nào quan trọng khi hệ thống chọn tài xế?
@@ -609,6 +654,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Nhân viên vận hành ưu tiên thủ công.
 - [ ] Chỉ cần tiêu chí đơn giản cho MVP: gần nhất và đang rảnh.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q49. Đề nghị giao hàng nên được gửi như thế nào?
@@ -621,6 +667,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Kết hợp tự động và thủ công.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q50. Tài xế có bao lâu để chấp nhận đề nghị giao hàng?
@@ -633,6 +680,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Thời gian khác:  giây. *(có ô nhập bổ sung)*
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q51. Khi tài xế từ chối hoặc không phản hồi thì sao?
@@ -645,6 +693,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Chuyển hoàn toàn sang xử lý thủ công.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q52. Tài xế có được hủy sau khi đã nhận đơn?
@@ -658,6 +707,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
 **Mô tả chi tiết:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q53. Khi tài xế đã nhận nhưng không di chuyển hoặc mất kết nối thì xử lý thế nào?
@@ -670,6 +720,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Tự động đổi tài xế sau  phút. *(có ô nhập bổ sung)*
 - [ ] Nhân viên gọi xác nhận trước khi đổi.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q54. Tài xế và khách cần sử dụng bản đồ như thế nào?
@@ -684,6 +735,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Cửa hàng xem vị trí tài xế đang đến lấy món.
 - [ ] Admin xem vị trí các tài xế đang hoạt động.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q55. Phí giao hàng được tính theo cách nào?
@@ -698,6 +750,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Miễn phí giao hàng trong một số trường hợp.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q56. Phí giao hàng được hiển thị và thu như thế nào?
@@ -709,6 +762,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Doanh nghiệp hỗ trợ một phần.
 - [ ] Chia theo quy tắc khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q57. Tài xế sẽ thu những khoản tiền nào từ khách?
@@ -720,6 +774,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Chỉ phí giao hàng.
 - [ ] Khoản khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q58. Tiền COD được đối soát theo quy trình nào?
@@ -733,6 +788,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Doanh nghiệp chưa có quy trình — cần tư vấn.
 - [ ] Quy trình khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q59. Tài xế được trả thu nhập như thế nào?
@@ -746,6 +802,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Kết hợp lương và phí theo đơn.
 - [ ] Cách khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q60. Doanh nghiệp thu phí/hoa hồng từ cửa hàng như thế nào?
@@ -759,6 +816,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Kết hợp nhiều loại phí.
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào?
@@ -767,6 +825,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
 **Mô tả chi tiết:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q62. Những vai trò nào cần sử dụng Web Admin?
@@ -781,6 +840,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Chỉ cần một loại tài khoản Admin trong MVP.
 - [ ] Vai trò khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q63. Admin cần quản lý những nội dung nào?
@@ -799,6 +859,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Thông báo hệ thống.
 - [ ] Cấu hình khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q64. Admin được phép can thiệp vào đơn hàng như thế nào?
@@ -814,6 +875,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 - [ ] Đánh dấu giao thành công/thất bại.
 - [ ] Liên hệ nhanh với khách, cửa hàng và tài xế.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q65. Những thông báo nào là bắt buộc?
@@ -880,6 +942,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Tài xế
 - [ ] Admin
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q66. Doanh nghiệp cần những báo cáo nào trong MVP?
@@ -897,6 +960,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Xuất Excel/CSV.
 - [ ] Báo cáo khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q67. Khi có khiếu nại hoặc tranh chấp, ai xử lý?
@@ -908,6 +972,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Nhân viên vận hành/Admin.
 - [ ] Chưa có quy trình — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q68. Khách, cửa hàng và tài xế liên hệ hỗ trợ bằng kênh nào?
@@ -921,6 +986,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 - [ ] Chat trực tiếp trong ứng dụng — tính năng tương lai.
 - [ ] Kênh khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào?
@@ -957,6 +1023,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 
 **Thiết bị phổ biến đang sử dụng:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q70. Yêu cầu về thương hiệu và giao diện
@@ -969,6 +1036,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Có ứng dụng tham khảo mong muốn.
 - [ ] Chỉ cần giao diện đơn giản để thử nghiệm MVP.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q71. Ngôn ngữ cần hỗ trợ
@@ -979,6 +1047,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Tiếng Việt và tiếng Anh.
 - [ ] Ngôn ngữ khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q72. Dữ liệu và quyền riêng tư cần lưu ý điều gì?
@@ -993,6 +1062,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Cần cho phép người dùng yêu cầu cập nhật/xóa dữ liệu.
 - [ ] Chưa có chính sách — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q73. Khi xảy ra sự cố hệ thống hoặc mất dữ liệu, mức chấp nhận của doanh nghiệp là gì?
@@ -1006,6 +1076,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Cần khôi phục nhanh trong vòng  giờ. *(có ô nhập bổ sung)*
 - [ ] Chưa xác định — cần tư vấn.
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q74. Doanh nghiệp đã có các tài khoản/dịch vụ nào?
@@ -1022,6 +1093,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 - [ ] Chưa có; cần hướng dẫn đăng ký.
 - [ ] Khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành?
@@ -1042,6 +1114,7 @@ Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
 
 **Nghiệm thu cuối cùng:** _______________________________________________
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ### Q76. Hình thức bàn giao mong muốn
@@ -1057,6 +1130,7 @@ Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
 - [ ] Hỗ trợ đưa ứng dụng lên App Store/Google Play.
 - [ ] Nội dung khác *(có ô nhập bổ sung)*
 
+**Ghi chú bổ sung:** _______________________________________________
 ---
 
 ## Phần cuối - Ghi chú thêm
