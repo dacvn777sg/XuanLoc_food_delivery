@@ -26,7 +26,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 
 ## Phần B - Khảo sát nghiệp vụ & kỹ thuật
 
-### Q01. Hệ thống dự kiến gồm những kênh sử dụng nào? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q01. Hệ thống dự kiến gồm những kênh sử dụng nào? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -41,7 +41,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q02. Mỗi cửa hàng trong phiên bản đầu tiên chỉ có một địa chỉ hoạt động? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q02. Mỗi cửa hàng trong phiên bản đầu tiên chỉ có một địa chỉ hoạt động? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -53,7 +53,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q03. Mỗi đơn hàng chỉ được đặt từ một cửa hàng? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q03. Mỗi đơn hàng chỉ được đặt từ một cửa hàng? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -64,7 +64,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q04. Mỗi tài xế chỉ giao một đơn tại một thời điểm trong MVP? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q04. Mỗi tài xế chỉ giao một đơn tại một thời điểm trong MVP? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -75,7 +75,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q05. Hình thức thanh toán chính của MVP là tiền mặt khi nhận hàng (COD)? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q05. Hình thức thanh toán chính của MVP là tiền mặt khi nhận hàng (COD)? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -87,7 +87,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q06. Việc chọn tài xế được thực hiện như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q06. Việc chọn tài xế được thực hiện như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -100,7 +100,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q07. Khách không được tự hủy sau khi cửa hàng đã chấp nhận đơn? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q07. Khách không được tự hủy sau khi cửa hàng đã chấp nhận đơn? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -113,7 +113,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q09. Dự án đang ở giai đoạn nào? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q09. Dự án đang ở giai đoạn nào? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -128,7 +128,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q10. Ba mục tiêu quan trọng nhất của dự án là gì? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q10. Ba mục tiêu quan trọng nhất của dự án là gì? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -148,7 +148,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q11. Hiện nay đơn hàng đến từ những kênh nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q11. Hiện nay đơn hàng đến từ những kênh nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -165,7 +165,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q12. Quy trình hiện tại từ lúc nhận đơn đến khi giao xong diễn ra như thế nào? **[MVP]**
 
 > Vui lòng mô tả ngắn gọn ai nhận đơn, ai xác nhận món, ai gọi tài xế, ai thu tiền và ai xử lý khi có sự cố.
 
@@ -179,7 +179,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q13. Những khó khăn lớn nhất trong quy trình hiện tại là gì? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q13. Những khó khăn lớn nhất trong quy trình hiện tại là gì? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -198,7 +198,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q15. Khu vực triển khai ban đầu ở đâu? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q15. Khu vực triển khai ban đầu ở đâu? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -212,7 +212,7 @@ Vui lòng trả lời đầy đủ và chính xác nhất có thể. Mọi thôn
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q16. Quy mô dự kiến trong 6 tháng đầu **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q16. Quy mô dự kiến trong 6 tháng đầu **[MVP]**
 
 Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 
@@ -231,7 +231,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q17. Hệ thống cần hoạt động trong khung giờ nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q17. Hệ thống cần hoạt động trong khung giờ nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -245,7 +245,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q18. Khách được đặt giao trong phạm vi nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q18. Khách được đặt giao trong phạm vi nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -259,7 +259,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q19. Cách triển khai mong muốn **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q19. Cách triển khai mong muốn **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -271,7 +271,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q20. Khách có bắt buộc đăng ký tài khoản trước khi đặt món? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q20. Khách có bắt buộc đăng ký tài khoản trước khi đặt món? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -283,7 +283,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q21. Khách đăng nhập bằng cách nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q21. Khách đăng nhập bằng cách nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -298,7 +298,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q22. Khách cần quản lý địa chỉ giao hàng như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q22. Khách cần quản lý địa chỉ giao hàng như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -311,7 +311,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q23. Khách tìm cửa hàng và món ăn theo cách nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q23. Khách tìm cửa hàng và món ăn theo cách nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -328,7 +328,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q24. Khách cần thao tác gì khi chọn món? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q24. Khách cần thao tác gì khi chọn món? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -343,7 +343,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q25. Thông tin nào cần hiển thị trước khi khách xác nhận đơn? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q25. Thông tin nào cần hiển thị trước khi khách xác nhận đơn? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -360,7 +360,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q26. Khách có được đặt món trước theo ngày/giờ không? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q26. Khách có được đặt món trước theo ngày/giờ không? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -372,7 +372,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q27. Trong lúc giao, khách cần xem hoặc thực hiện những gì? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q27. Trong lúc giao, khách cần xem hoặc thực hiện những gì? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -390,7 +390,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q28. Một cửa hàng cần bao nhiêu người sử dụng hệ thống? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q28. Một cửa hàng cần bao nhiêu người sử dụng hệ thống? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -403,7 +403,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q29. Cửa hàng cần quản lý trạng thái hoạt động nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q29. Cửa hàng cần quản lý trạng thái hoạt động nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -416,7 +416,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q30. Khi có đơn mới, cửa hàng cần làm gì? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q30. Khi có đơn mới, cửa hàng cần làm gì? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -431,7 +431,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q31. Nếu cửa hàng không phản hồi đơn trong thời gian quy định thì xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q31. Nếu cửa hàng không phản hồi đơn trong thời gian quy định thì xử lý thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -445,7 +445,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q32. Ai chịu trách nhiệm tạo và cập nhật thực đơn? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q32. Ai chịu trách nhiệm tạo và cập nhật thực đơn? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -458,7 +458,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q33. Thực đơn cần hỗ trợ những nội dung nào? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q33. Thực đơn cần hỗ trợ những nội dung nào? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -477,7 +477,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q34. Cửa hàng xử lý món tạm hết như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q34. Cửa hàng xử lý món tạm hết như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -490,7 +490,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q35. Cửa hàng có được tự thay đổi giá món? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q35. Cửa hàng có được tự thay đổi giá món? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -502,7 +502,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q36. Cửa hàng cần xem những thông tin nào sau bán hàng? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q36. Cửa hàng cần xem những thông tin nào sau bán hàng? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -517,7 +517,7 @@ Vui lòng ước lượng số lượng dự kiến trong 6 tháng đầu:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q37. Vui lòng xác nhận luồng đơn hàng cơ bản **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q37. Vui lòng xác nhận luồng đơn hàng cơ bản **[MVP]**
 
 ```
 Khách đặt món
@@ -549,7 +549,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q38. Cửa hàng có cần cập nhật riêng trạng thái “đang chuẩn bị” và “đã sẵn sàng”? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q38. Cửa hàng có cần cập nhật riêng trạng thái “đang chuẩn bị” và “đã sẵn sàng”? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -561,7 +561,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q39. Khách được hủy đơn trong trường hợp nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q39. Khách được hủy đơn trong trường hợp nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -576,7 +576,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q40. Cửa hàng được hủy/từ chối đơn trong trường hợp nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q40. Cửa hàng được hủy/từ chối đơn trong trường hợp nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -591,7 +591,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q41. Nếu một món trong đơn bị hết sau khi khách đã đặt thì xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q41. Nếu một món trong đơn bị hết sau khi khách đã đặt thì xử lý thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -604,7 +604,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q42. Nếu không tìm được tài xế thì xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q42. Nếu không tìm được tài xế thì xử lý thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -620,7 +620,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q43. Nếu khách không nghe máy hoặc không nhận hàng thì xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q43. Nếu khách không nghe máy hoặc không nhận hàng thì xử lý thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -636,7 +636,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q44. Cần bằng chứng nào để xác nhận giao hàng thành công? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q44. Cần bằng chứng nào để xác nhận giao hàng thành công? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -650,7 +650,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q45. Ai tạo tài khoản tài xế? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q45. Ai tạo tài khoản tài xế? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -662,7 +662,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q46. Tài xế cần cung cấp/xác minh thông tin nào? **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q46. Tài xế cần cung cấp/xác minh thông tin nào? **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -678,7 +678,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q47. Tài xế cần những trạng thái hoạt động nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q47. Tài xế cần những trạng thái hoạt động nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -692,7 +692,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q48. Tiêu chí nào quan trọng khi hệ thống chọn tài xế? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q48. Tiêu chí nào quan trọng khi hệ thống chọn tài xế? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -707,7 +707,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q49. Đề nghị giao hàng nên được gửi như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q49. Đề nghị giao hàng nên được gửi như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -720,7 +720,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q50. Tài xế có bao lâu để chấp nhận đề nghị giao hàng? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q50. Tài xế có bao lâu để chấp nhận đề nghị giao hàng? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -734,7 +734,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q51. Khi tài xế từ chối hoặc không phản hồi thì sao? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q51. Khi tài xế từ chối hoặc không phản hồi thì sao? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -749,7 +749,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q52. Tài xế có được hủy sau khi đã nhận đơn? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q52. Tài xế có được hủy sau khi đã nhận đơn? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -763,7 +763,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q53. Khi tài xế đã nhận nhưng không di chuyển hoặc mất kết nối thì xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q53. Khi tài xế đã nhận nhưng không di chuyển hoặc mất kết nối thì xử lý thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -777,7 +777,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q54. Tài xế và khách cần sử dụng bản đồ như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q54. Tài xế và khách cần sử dụng bản đồ như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -792,7 +792,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q55. Phí giao hàng được tính theo cách nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q55. Phí giao hàng được tính theo cách nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -808,7 +808,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q56. Phí giao hàng được hiển thị và thu như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q56. Phí giao hàng được hiển thị và thu như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -821,7 +821,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q57. Tài xế sẽ thu những khoản tiền nào từ khách? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q57. Tài xế sẽ thu những khoản tiền nào từ khách? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -834,7 +834,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q58. Tiền COD được đối soát theo quy trình nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q58. Tiền COD được đối soát theo quy trình nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -849,7 +849,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q59. Tài xế được trả thu nhập như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q59. Tài xế được trả thu nhập như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -864,7 +864,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q60. Doanh nghiệp thu phí/hoa hồng từ cửa hàng như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q60. Doanh nghiệp thu phí/hoa hồng từ cửa hàng như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -878,7 +878,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q61. Khi đơn bị hủy hoặc giao thất bại, tiền và công nợ được xử lý thế nào? **[MVP]**
 
 > **Nếu MVP chỉ dùng COD**, vui lòng mô tả ai chịu chi phí món ăn, phí giao và khoản bồi hoàn nếu có.
 
@@ -890,7 +890,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q62. Những vai trò nào cần sử dụng Web Admin? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q62. Những vai trò nào cần sử dụng Web Admin? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -906,7 +906,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q63. Admin cần quản lý những nội dung nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q63. Admin cần quản lý những nội dung nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -926,7 +926,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q64. Admin được phép can thiệp vào đơn hàng như thế nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q64. Admin được phép can thiệp vào đơn hàng như thế nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -942,7 +942,7 @@ Khách đặt món
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q65. Những thông báo nào là bắt buộc? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q65. Những thông báo nào là bắt buộc? **[MVP]**
 
 Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông báo:
 
@@ -1009,7 +1009,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q66. Doanh nghiệp cần những báo cáo nào trong MVP? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q66. Doanh nghiệp cần những báo cáo nào trong MVP? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1028,7 +1028,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q67. Khi có khiếu nại hoặc tranh chấp, ai xử lý? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q67. Khi có khiếu nại hoặc tranh chấp, ai xử lý? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1041,7 +1041,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q68. Khách, cửa hàng và tài xế liên hệ hỗ trợ bằng kênh nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q68. Khách, cửa hàng và tài xế liên hệ hỗ trợ bằng kênh nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1056,7 +1056,7 @@ Với mỗi sự kiện, vui lòng tick vào nhóm người cần nhận thông 
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q69. Người dùng sẽ sử dụng hệ thống trên thiết bị nào? **[MVP]**
 
 Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử dụng:
 
@@ -1093,7 +1093,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q70. Yêu cầu về thương hiệu và giao diện **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q70. Yêu cầu về thương hiệu và giao diện **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1107,7 +1107,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q71. Ngôn ngữ cần hỗ trợ **[Optional]** _(có thể bỏ qua hoặc triển khai sau)_
+### Q71. Ngôn ngữ cần hỗ trợ **[Optional]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1119,7 +1119,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q72. Dữ liệu và quyền riêng tư cần lưu ý điều gì? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q72. Dữ liệu và quyền riêng tư cần lưu ý điều gì? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1135,7 +1135,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q73. Khi xảy ra sự cố hệ thống hoặc mất dữ liệu, mức chấp nhận của doanh nghiệp là gì? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q73. Khi xảy ra sự cố hệ thống hoặc mất dữ liệu, mức chấp nhận của doanh nghiệp là gì? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1150,7 +1150,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q74. Doanh nghiệp đã có các tài khoản/dịch vụ nào? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q74. Doanh nghiệp đã có các tài khoản/dịch vụ nào? **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
@@ -1168,7 +1168,7 @@ Với mỗi nhóm người dùng, vui lòng tick thiết bị họ sẽ sử d�
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành? **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q75. Ai là người kiểm tra và xác nhận sản phẩm hoàn thành? **[MVP]**
 
 Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
 
@@ -1189,7 +1189,7 @@ Vui lòng ghi rõ người phụ trách xác nhận cho từng hạng mục:
 **Ghi chú bổ sung:** _______________________________________________
 ---
 
-### Q76. Hình thức bàn giao mong muốn **[MVP]** ← _(câu này cần cho sản phẩm đầu tiên)_
+### Q76. Hình thức bàn giao mong muốn **[MVP]**
 
 **Chọn các đáp án phù hợp:**
 
