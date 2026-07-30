@@ -1181,7 +1181,47 @@ _______________________________________________________________
 
 _______________________________________________________________
 
-**Tài liệu doanh nghiệp có thể cung cấp:**
+---
+
+## Q79. Nếu cần khuyến mãi/voucher
+
+> Phần này nằm ngoài phạm vi MVP, có thể triển khai ở giai đoạn 2. Quý khách có thể bỏ qua nếu chưa cần.
+
+**Ai tạo chương trình khuyến mãi?** *(chọn)*
+- [ ] Doanh nghiệp (admin) tạo
+- [ ] Cửa hàng tự tạo
+- [ ] Cả hai *(có ô nhập bổ sung)*
+
+**Khuyến mãi áp dụng cho:** *(chọn nhiều)*
+- [ ] Từng món
+- [ ] Cả cửa hàng
+- [ ] Phí giao hàng
+- [ ] Toàn đơn hàng
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Có giới hạn số lượt, thời gian và nhóm khách không?** *(chọn)*
+- [ ] Giới hạn số lượt dùng
+- [ ] Giới hạn theo thời gian (theo ngày/giờ)
+- [ ] Giới hạn theo nhóm khách (mới/cũ/VIP)
+- [ ] Không giới hạn
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Ai chịu chi phí khuyến mãi?** *(chọn)*
+- [ ] Doanh nghiệp
+- [ ] Cửa hàng
+- [ ] Chia sẻ (doanh nghiệp + cửa hàng)
+- [ ] Khác *(có ô nhập bổ sung)*
+
+**Cho phép dùng nhiều ưu đãi trên một đơn không?** *(chọn)*
+- [ ] Có, cho phép stack nhiều voucher
+- [ ] Không, chỉ áp dụng 1 voucher/đơn
+- [ ] Tùy theo loại voucher
+
+**Ghi chú bổ sung:** _______________________________________________
+
+---
+
+## Tài liệu doanh nghiệp có thể cung cấp:
 - [ ] Sơ đồ tổ chức
 - [ ] Quy trình vận hành hiện tại
 - [ ] Báo cáo doanh thu / số liệu kinh doanh
